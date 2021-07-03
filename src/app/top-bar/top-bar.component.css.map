@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "top-bar.component.sass"
+    ],
+    "names": [],
+    "file": "top-bar.component.css"
+}
