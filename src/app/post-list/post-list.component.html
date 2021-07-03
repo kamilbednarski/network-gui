@@ -1,0 +1,13 @@
+<div class="container mb-2" *ngFor="let post of posts">
+    <div class="card">
+        <div class="card-body">
+            <div class="small">
+                <span>{{ post.dateOfCreation }} </span>
+                <span>{{ post.timeOfCreation }}</span>
+            </div>
+            <div class="card-text">
+                {{ post.content }}
+            </div>
+        </div>
+      </div>
+</div>
