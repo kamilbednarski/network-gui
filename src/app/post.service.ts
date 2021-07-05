@@ -6,22 +6,21 @@ import { catchError, retry } from 'rxjs/operators';
 
 import { Post } from './post';
 
-const datepipe: DatePipe = new DatePipe('en-US');
-const GET_ALL_POST_ENDPOINT = 'http://localhost:8080/api/post/get/all/sort/date';
-
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   private posts: Post[] = [];
+  private commentCounter: number | any = 56;
 
   constructor(
     private http: HttpClient
   ) { }
 
 
-  showAllPost() {
-    this.loadAllPost().subscribe((response) => this.saveAllPostFromResponse(response));
+  loadAllPost() {
+    this.fetchAllPost()
+        .subscribe((response) => this.saveAllPostFromResponse(response));
     return this.posts;
   }
 
@@ -29,8 +28,9 @@ export class PostService {
     response.forEach((post: Post) => this.posts.push(post));
   }
 
-  private loadAllPost(): Observable<any> {
-    return this.http.get(GET_ALL_POST_ENDPOINT);
+  private fetchAllPost(): Observable<any> {
+    return this.http
+        .get('http://localhost:8080/api/post/get/all/sort/date');
   }
 
   displayPostCreationDateForToday(post: Post) {
@@ -41,21 +41,10 @@ export class PostService {
     return "yesterday at " + post.timeOfCreation;
   }
 
-  displayPostAgeDetails(post: Post): string {
-    if (post.ageOfPostInYears == 1) {
-      return post.ageOfPostInYears + " year ago."
-    }
-    else if (post.ageOfPostInYears > 1) {
-      return post.ageOfPostInYears + " years ago."
-    }
-    else if (post.ageOfPostInDays == 0) {
-      return "today at " + post.timeOfCreation;
-    }
-    else if (post.ageOfPostInDays == 1) {
-      return "yesterday at " + post.timeOfCreation;
-    }
-    else {
-      return post.dateOfCreation + " " + post.timeOfCreation;
-    }
+  formatNumber(number: number) {
+    return Math.abs(number) > 999
+          ? Math.sign(number)*(Math.round(Math.abs(number)/100)/10) + 'k'
+          : Math.sign(number)*Math.abs(number);
   }
+
 }

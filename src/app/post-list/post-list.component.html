@@ -36,17 +36,17 @@
                     <div class="row">
                         <div class="col">
                             <i class="bi bi-chat"></i>
-                            <span></span>
+                            <span class="ms-1 fw-light small">{{ formatNumber(post.commentCounter) }}</span>
                         </div>
 
                         <div class="col">
                             <i class="bi bi-heart"></i>
-                            <span class="ms-1 fw-light small">{{ post.numberOfLikes }}</span>
+                            <span class="ms-1 fw-light small">{{ formatNumber(post.numberOfLikes) }}</span>
                         </div>
 
                         <div class="col">
                             <i class="bi bi-share"></i>
-                            <span class="ms-1 fw-light small">{{ post.numberOfShares }}</span>
+                            <span class="ms-1 fw-light small">{{ formatNumber(post.numberOfShares) }}</span>
                         </div>
 
                         <div class="col">

@@ -6,6 +6,7 @@ export interface Post {
     content: string;
     numberOfLikes: number;
     numberOfShares: number;
+    commentCounter: number;
     dateOfCreation: string;
     timeOfCreation: string;
     wasItModified: boolean;
