@@ -1,5 +1,8 @@
+import { User } from "./user";
+
 export interface Post {
     id: number;
+    user: User;
     content: string;
     numberOfLikes: number;
     numberOfShares: number;

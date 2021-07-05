@@ -15,6 +15,18 @@ export class PostListComponent implements OnInit {
     private postService: PostService
   ) { }
 
+  displayPostAgeDetails(post: Post): string {
+    return this.postService.displayPostAgeDetails(post);
+  }
+
+  displayPostCreationDateForToday(post: Post): string {
+    return this.postService.displayPostCreationDateForYesterday(post);
+  }
+
+  displayPostCreationDateForYesterday(post: Post): string {
+    return this.postService.displayPostCreationDateForYesterday(post);
+  }
+
   ngOnInit(): void {
     this.posts = this.postService.showAllPost();
   }
