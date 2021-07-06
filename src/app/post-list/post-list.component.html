@@ -1,7 +1,7 @@
 <div *ngFor="let post of posts" class="container mb-2">
     <div *ngIf="post" class="card">
 
-        <div class="card-header">
+        <div class="card-header bg-white">
             <span class="fw-bold">
                 <span>{{ post.user.firstName }}</span>
                 <span class="ms-1">{{ post.user.lastName }}</span>
@@ -9,7 +9,7 @@
 
             <span><i class="bi bi-dot"></i></span>
 
-            <span class="fw-light small">@{{ post.user.username }}</span>
+            <span class="fw-light text-secondary">@{{ post.user.username }}</span>
 
             <div *ngIf="post.ageOfPostInDays==0" class="fw-light small text-secondary">
                 {{ displayPostCreationDateForToday(post) }}
