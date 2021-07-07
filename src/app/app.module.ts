@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 const routes: Routes = [
   { path: '', component: PostListComponent }
@@ -19,7 +20,8 @@ const routes: Routes = [
     AppComponent,
     TopBarComponent,
     PostListComponent,
-    FooterComponent
+    FooterComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
