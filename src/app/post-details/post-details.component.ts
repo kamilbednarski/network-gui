@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Post } from "../post";
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-post-details',
@@ -6,10 +10,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-details.component.sass']
 })
 export class PostDetailsComponent implements OnInit {
+  post: Post | undefined | any;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private postService: PostService
+  ) { }
 
   ngOnInit(): void {
+    // Get the product id from the current route.
+    const routeParams = this.route.snapshot.paramMap;
+    const postIdFromRoute = Number(routeParams.get('postId'));
+
+    // Find the product that correspond with the id provided in route.
+    this.postService.loadPostById(postIdFromRoute).subscribe(data => this.post = data);
   }
 
+  displayPostCreationDateForToday(post: Post): string {
+    return this.postService.displayPostCreationDateForYesterday(post);
+  }
+
+  displayPostCreationDateForYesterday(post: Post): string {
+    return this.postService.displayPostCreationDateForYesterday(post);
+  }
+
+  formatNumber(number: number) {
+    return this.postService.formatNumber(number);
+  }
 }

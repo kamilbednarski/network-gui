@@ -10,9 +10,11 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
+import { PostService } from './post.service';
 
 const routes: Routes = [
-  { path: '', component: PostListComponent }
+  { path: '', component: PostListComponent },
+  { path: 'post/:postId', component: PostDetailsComponent }
 ];
 
 @NgModule({
@@ -29,7 +31,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
@@ -11,12 +10,14 @@ import { Post } from './post';
 })
 export class PostService {
   private posts: Post[] = [];
-  private commentCounter: number | any = 56;
 
   constructor(
     private http: HttpClient
   ) { }
 
+  loadPostById(id: number) {
+    return this.http.get(`http://localhost:8080/api/post/get/id/${id}`);
+  }
 
   loadAllPost() {
     this.fetchAllPost()

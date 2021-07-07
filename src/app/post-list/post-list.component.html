@@ -1,4 +1,6 @@
-<div *ngFor="let post of posts" class="container border border-top-0">
+<div *ngFor="let post of posts" class="container border border-top-0 d-flex position-relative">
+
+    <a [routerLink]="['/post', post.id]" class="stretched-link"></a>
 
     <div class="p-4">
 
@@ -65,5 +67,4 @@
         </div>
 
     </div>
-
 </div>
