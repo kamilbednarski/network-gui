@@ -11,6 +11,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { PostService } from './post.service';
+import { CommentListComponent } from './comment-list/comment-list.component';
 
 const routes: Routes = [
   { path: '', component: PostListComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
     TopBarComponent,
     PostListComponent,
     FooterComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule,
