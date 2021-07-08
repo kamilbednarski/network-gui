@@ -1,10 +1,8 @@
 <div *ngFor="let post of posts" class="container border border-top-0 d-flex position-relative">
 
-    <a [routerLink]="['/post', post.id]" class="stretched-link"></a>
-
     <div class="p-4">
 
-        <div class="row">
+        <div class="row d-flex position-relative">
             <div class="col">
                 <span class="fw-bold">
                     <span>{{ post.user.firstName }}</span>
@@ -15,7 +13,7 @@
             </div>
         </div>
 
-        <div class="row mb-3">
+        <div class="row">
             <div class="col">
                 <div *ngIf="post.ageOfPostInDays==0" class="fw-light small text-secondary">
                     {{ displayPostCreationDateForToday(post) }}
@@ -31,8 +29,9 @@
             </div>
         </div>
 
-        <div class="row mb-3">
+        <div class="row py-3 d-flex position-relative">
             <div class="col">
+                <a [routerLink]="['/post', post.id]" class="stretched-link"></a>
                 <div>{{ post.content }}</div>
             </div>
         </div>
