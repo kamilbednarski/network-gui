@@ -18,11 +18,11 @@ export class PostDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Get the product id from the current route.
+    // Get the post id from the current route.
     const routeParams = this.route.snapshot.paramMap;
     const postIdFromRoute = Number(routeParams.get('postId'));
 
-    // Find the product that correspond with the id provided in route.
+    // Find the post that correspond with the id provided in route.
     this.postService.loadPostById(postIdFromRoute).subscribe(data => this.post = data);
   }
 
