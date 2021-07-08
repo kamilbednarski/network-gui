@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
+import * as Utils from "./utils";
 import { Post } from './post';
 
 @Injectable({
@@ -19,9 +20,9 @@ export class PostService {
     return this.http.get(`http://localhost:8080/api/post/get/id/${id}`);
   }
 
-  loadAllPost() {
+  loadAllPost(): Post[] {
     this.fetchAllPost()
-        .subscribe((response) => this.saveAllPostFromResponse(response));
+      .subscribe((response) => this.saveAllPostFromResponse(response));
     return this.posts;
   }
 
@@ -31,21 +32,19 @@ export class PostService {
 
   private fetchAllPost(): Observable<any> {
     return this.http
-        .get('http://localhost:8080/api/post/get/all/sort/date');
+      .get('http://localhost:8080/api/post/get/all/sort/date');
   }
 
   displayPostCreationDateForToday(post: Post) {
-    return "today at " + post.timeOfCreation;
+    return Utils.displayObjectCreationDateForToday(post);
   }
 
   displayPostCreationDateForYesterday(post: Post) {
-    return "yesterday at " + post.timeOfCreation;
+    return Utils.displayObjectCreationDateForYesterday(post);
   }
 
   formatNumber(number: number) {
-    return Math.abs(number) > 999
-          ? Math.sign(number)*(Math.round(Math.abs(number)/100)/10) + 'k'
-          : Math.sign(number)*Math.abs(number);
+     return Utils.formatNumber(number);
   }
 
 }
