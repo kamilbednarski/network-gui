@@ -37,28 +37,28 @@
         </div>
 
         <div class="row">
-            <div class="col d-flex position-relative">
+            <div class="col">
                 <div>
                     <i class="bi bi-chat"></i>
-                    <span class="ms-1 fw-light small">{{ formatNumber(post.commentCounter) }}</span>
+                    <span *ngIf="post.commentCounter>0" class="ms-1 fw-light small">{{ formatNumber(post.commentCounter) }}</span>
                 </div>
             </div>
 
-            <div class="col d-flex position-relative">
+            <div class="col">
                 <div>
                     <i class="bi bi-heart"></i>
-                    <span class="ms-1 fw-light small">{{ formatNumber(post.numberOfLikes) }}</span>
+                    <span *ngIf="post.numberOfLikes>0" class="ms-1 fw-light small">{{ formatNumber(post.numberOfLikes) }}</span>
                 </div>
             </div>
 
-            <div class="col d-flex position-relative">
+            <div class="col">
                 <div>
                     <i class="bi bi-share"></i>
-                    <span class="ms-1 fw-light small">{{ formatNumber(post.numberOfShares) }}</span>
+                    <span *ngIf="post.numberOfShares>0" class="ms-1 fw-light small">{{ formatNumber(post.numberOfShares) }}</span>
                 </div>
             </div>
 
-            <div class="col d-flex position-relative">
+            <div class="col">
                 <div>
                     <i class="bi bi-box-arrow-up"></i>
                 </div>

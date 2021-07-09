@@ -26,4 +26,15 @@ export class CommentListComponent implements OnInit {
     this.comments = this.commentService.loadAllCommentByPostId(postIdFromRoute);
   }
 
+  displayCommentCreationDateForToday(comment: PostComment): string {
+    return this.commentService.displayCommentCreationDateForToday(comment);
+  }
+
+  displayCommentCreationDateForYesterday(comment: PostComment): string {
+    return this.commentService.displayCommentCreationDateForYesterday(comment);
+  }
+
+  formatNumber(number: number) {
+    return this.commentService.formatNumber(number);
+  }
 }

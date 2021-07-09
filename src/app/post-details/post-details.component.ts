@@ -27,7 +27,7 @@ export class PostDetailsComponent implements OnInit {
   }
 
   displayPostCreationDateForToday(post: Post): string {
-    return this.postService.displayPostCreationDateForYesterday(post);
+    return this.postService.displayPostCreationDateForToday(post);
   }
 
   displayPostCreationDateForYesterday(post: Post): string {

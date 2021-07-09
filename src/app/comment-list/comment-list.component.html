@@ -1,14 +1,51 @@
 <div *ngFor="let comment of comments" class="container border border-top-0">
 
-    <div class="row">
-        <div class="col">
-            <span class="fw-bold">
-                <span>{{ comment.user.firstName }}</span>
-                <span class="ms-1">{{ comment.user.lastName }}</span>
-            </span>
-            <span><i class="bi bi-dot"></i></span>
-            <span class="fw-light text-secondary">@{{ comment.user.username }}</span>
+    <div class="p-4">
+
+        <div class="row">
+            <div class="col">
+                <span class="fw-bold">
+                    <span>{{ comment.user.firstName }}</span>
+                    <span class="ms-1">{{ comment.user.lastName }}</span>
+                </span>
+                <span><i class="bi bi-dot"></i></span>
+                <span class="fw-light text-secondary">@{{ comment.user.username }}</span>
+            </div>
         </div>
+
+        <div class="row">
+            <div class="col">
+                <div *ngIf="comment.ageOfCommentInDays==0" class="fw-light small text-secondary">
+                    {{ displayCommentCreationDateForToday(comment) }}
+                </div>
+
+                <div *ngIf="comment.ageOfCommentInDays==1" class="fw-light small text-secondary">
+                    {{ displayCommentCreationDateForYesterday(comment) }}
+                </div>
+
+                <div *ngIf="comment.ageOfCommentInDays>1" class="fw-light small text-secondary">
+                    {{ comment.dateOfCreation| date:'mediumDate'}} at {{ comment.timeOfCreation }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-2">
+            <div class="col">
+                <span>{{ comment.content }}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+                <i class="bi bi-heart"></i>
+                <span *ngIf="comment.numberOfLikes>0" class="ms-1 fw-light small">{{ formatNumber(comment.numberOfLikes) }}</span>
+            </div>
+
+            <div class="col text-center">
+                <i class="bi bi-chat"></i>
+            </div>
+        </div>
+
     </div>
 
 </div>
