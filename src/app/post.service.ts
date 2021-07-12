@@ -1,3 +1,5 @@
+import { environment } from '../environments/environment';
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -17,7 +19,7 @@ export class PostService {
   ) { }
 
   loadPostById(id: number) {
-    return this.http.get(`http://localhost:8080/api/post/get/id/${id}`);
+    return this.http.get(environment.apiUrl + `/api/post/get/id/${id}`);
   }
 
   loadAllPost(): Post[] {
@@ -32,7 +34,7 @@ export class PostService {
 
   private fetchAllPost(): Observable<any> {
     return this.http
-      .get('http://localhost:8080/api/post/get/all/sort/date');
+      .get(environment.apiUrl + '/api/post/get/all/sort/date');
   }
 
   displayPostCreationDateForToday(post: Post) {

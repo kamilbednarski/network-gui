@@ -1,3 +1,5 @@
+import { environment } from '../environments/environment';
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -6,9 +8,6 @@ import { catchError, retry } from 'rxjs/operators';
 import * as Utils from "./utils";
 import { PostComment } from './comment';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
 @Injectable()
 export class CommentService {
   private comments: PostComment[] = [];
@@ -29,7 +28,7 @@ export class CommentService {
 
   private fetchAllCommentByPostId(id: number): Observable<any> {
     return this.http
-      .get(`http://localhost:8080/api/comment/get/all/post/${id}`);
+      .get(environment.apiUrl + `/api/comment/get/all/post/${id}`);
   }
 
   displayCommentCreationDateForToday(comment: PostComment) {
