@@ -6,9 +6,10 @@ import { catchError, retry } from 'rxjs/operators';
 import * as Utils from "./utils";
 import { PostComment } from './comment';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
+@Injectable()
 export class CommentService {
   private comments: PostComment[] = [];
 

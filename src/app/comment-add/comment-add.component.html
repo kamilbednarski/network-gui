@@ -1,0 +1,11 @@
+<div class="container border border-top-0 p-3">
+    <div class="row g-2">
+        <div class="col">
+            <label for="commentContentInput" class="visually-hidden">Content</label>
+            <input #commentContentInput type="text" class="form-control border rounded-pill" id="commentContentInput" placeholder="Add comment...">
+        </div>
+        <div class="col-auto">
+            <button (click)="addComment(commentContentInput.value, uniquePostId)" class="btn btn-outline-success border border-success rounded-pill">Comment</button>
+        </div>
+    </div>
+</div>

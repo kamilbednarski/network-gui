@@ -18,6 +18,7 @@ export class CommentListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.comments = [];
     // Get the post id from the current route.
     const routeParams = this.route.snapshot.paramMap;
     const postIdFromRoute = Number(routeParams.get('postId'));

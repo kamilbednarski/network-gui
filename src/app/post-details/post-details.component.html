@@ -20,6 +20,7 @@
         </div>
 
         <div class="row pb-3">
+            <input #uniqueElementIdValue value="{{ post.id }}" class="d-none">
             <div class="col">
                 <div *ngIf="post.ageOfPostInDays==0" class="fw-light small text-secondary">
                     {{ displayPostCreationDateForToday(post) }}
@@ -70,5 +71,7 @@
     </div>
 
 </div>
+
+<app-comment-add [uniquePostId]="uniquePostId"></app-comment-add>
 
 <app-comment-list></app-comment-list>
