@@ -17,9 +17,14 @@ export class CommentAddComponent implements OnInit {
   }
 
   addComment(content: string, postId: number) {
-    console.log(content);
-    console.log(postId);
-    //TODO: POST create new comment for given Post
-    //this.commentService.addNewComment(content);
+    this.commentService.addNewComment(content, postId);
+  }
+
+  deleteComment(commentId: number) {
+    this.commentService.deleteCommentById(commentId);
+  }
+
+  editComment(commentId: number, content: string) {
+    this.commentService.editComment(commentId, content);
   }
 }

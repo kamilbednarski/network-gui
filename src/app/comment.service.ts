@@ -16,6 +16,23 @@ export class CommentService {
     private http: HttpClient
   ) { }
 
+  addNewComment(content: string, postId: number) {
+    console.log(content);
+    console.log(postId);
+    //TODO: implement create new comment for given Post
+  }
+
+  deleteCommentById(id: number) {
+    console.log(id);
+    //TODO: implement delete existing comment
+  }
+
+  editComment(commentId: number, content: string) {
+    console.log(commentId);
+    console.log(content);
+    //TODO: implement edit existing comment
+  }
+
   loadAllCommentByPostId(id: number): PostComment[] {
     this.fetchAllCommentByPostId(id)
       .subscribe((response) => this.saveAllCommentFromResponse(response));
