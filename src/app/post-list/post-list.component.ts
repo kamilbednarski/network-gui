@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PostService } from '../post.service';
 import { Post } from '../post';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-post-list',
@@ -9,6 +10,8 @@ import { Post } from '../post';
   styleUrls: ['./post-list.component.sass']
 })
 export class PostListComponent implements OnInit {
+
+  private subscriptions = new SubSink();
   posts: Post[] = [];
 
   constructor(
@@ -16,7 +19,19 @@ export class PostListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.posts = this.postService.loadAllPost();
+    this.loadAllPost();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  loadAllPost() {
+    this.subscriptions.add(
+      this.postService.fetchPostAll()
+        .subscribe(
+          response => this.posts = response,
+          error => console.log('HTTP Error', error)));
   }
 
   displayPostCreationDateForToday(post: Post): string {

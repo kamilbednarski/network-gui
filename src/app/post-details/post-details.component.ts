@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CommentService } from '../comment.service';
+import { SubSink } from 'subsink';
 
+import { CommentService } from '../comment.service';
 import { Post } from "../post";
 import { PostService } from '../post.service';
 
@@ -12,7 +13,9 @@ import { PostService } from '../post.service';
   providers: [CommentService]
 })
 export class PostDetailsComponent implements OnInit {
-  post: Post | undefined | any;
+
+  private subscriptions = new SubSink();
+  post: Post | undefined;
   uniquePostId: number | undefined;
 
   constructor(
@@ -27,7 +30,19 @@ export class PostDetailsComponent implements OnInit {
     this.uniquePostId = postIdFromRoute;
 
     // Find the post that correspond with the id provided in route.
-    this.postService.loadPostById(postIdFromRoute).subscribe(data => this.post = data);
+    this.loadPostById(postIdFromRoute);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  loadPostById(id: number): void {
+    this.subscriptions.add(
+      this.postService.fetchPostById(id)
+        .subscribe(
+          response => this.post = response,
+          error => console.log('HTTP Error', error)));
   }
 
   displayPostCreationDateForToday(post: Post): string {
@@ -38,7 +53,7 @@ export class PostDetailsComponent implements OnInit {
     return this.postService.displayPostCreationDateForYesterday(post);
   }
 
-  formatNumber(number: number) {
+  formatNumber(number: number): string | number {
     return this.postService.formatNumber(number);
   }
 }

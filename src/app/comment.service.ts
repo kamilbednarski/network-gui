@@ -10,7 +10,6 @@ import { PostComment } from './comment';
 
 @Injectable()
 export class CommentService {
-  private comments: PostComment[] = [];
 
   constructor(
     private http: HttpClient
@@ -33,30 +32,20 @@ export class CommentService {
     //TODO: implement edit existing comment
   }
 
-  loadAllCommentByPostId(id: number): PostComment[] {
-    this.fetchAllCommentByPostId(id)
-      .subscribe((response) => this.saveAllCommentFromResponse(response));
-    return this.comments;
-  }
-
-  private saveAllCommentFromResponse(response: any): void {
-    response.forEach((comment: PostComment) => this.comments.push(comment));
-  }
-
-  private fetchAllCommentByPostId(id: number): Observable<any> {
+  fetchAllCommentByPostId(id: number): Observable<PostComment[]> {
     return this.http
-      .get(environment.apiUrl + `/api/comment/get/all/post/${id}`);
+      .get<PostComment[]>(environment.apiUrl + `/api/comment/get/all/post/${id}`);
   }
 
-  displayCommentCreationDateForToday(comment: PostComment) {
+  displayCommentCreationDateForToday(comment: PostComment): string {
     return Utils.displayObjectCreationDateForToday(comment);
   }
 
-  displayCommentCreationDateForYesterday(comment: PostComment) {
+  displayCommentCreationDateForYesterday(comment: PostComment): string {
     return Utils.displayObjectCreationDateForYesterday(comment);
   }
 
-  formatNumber(number: number) {
+  formatNumber(number: number): string | number {
      return Utils.formatNumber(number);
   }
 }

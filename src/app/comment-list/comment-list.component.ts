@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { CommentService } from '../comment.service';
 import { PostComment } from "../comment";
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-comment-list',
@@ -10,6 +11,8 @@ import { PostComment } from "../comment";
   styleUrls: ['./comment-list.component.sass']
 })
 export class CommentListComponent implements OnInit {
+
+  private subscriptions = new SubSink();
   comments: PostComment[] = [];
 
   constructor(
@@ -24,7 +27,15 @@ export class CommentListComponent implements OnInit {
     const postIdFromRoute = Number(routeParams.get('postId'));
 
     // Find comments that correspond with the post id provided in route.
-    this.comments = this.commentService.loadAllCommentByPostId(postIdFromRoute);
+    this.loadAllCommentByPostId(postIdFromRoute);
+  }
+
+  loadAllCommentByPostId(id: number): void {
+    this.subscriptions.add(
+      this.commentService.fetchAllCommentByPostId(id)
+        .subscribe(
+          response => this.comments = response,
+          error => console.log(error)));
   }
 
   displayCommentCreationDateForToday(comment: PostComment): string {
