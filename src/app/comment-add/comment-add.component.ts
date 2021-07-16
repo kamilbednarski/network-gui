@@ -17,7 +17,7 @@ export class CommentAddComponent implements OnInit {
   }
 
   addComment(content: string, postId: number) {
-    this.commentService.addNewComment(content, postId);
+    this.commentService.addComment(content, postId);
   }
 
   deleteComment(commentId: number) {

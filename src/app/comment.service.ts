@@ -2,8 +2,7 @@ import { environment } from '../environments/environment';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import * as Utils from "./utils";
 import { PostComment } from './comment';
@@ -15,7 +14,7 @@ export class CommentService {
     private http: HttpClient
   ) { }
 
-  addNewComment(content: string, postId: number) {
+  addComment(content: string, postId: number) {
     console.log(content);
     console.log(postId);
     //TODO: implement create new comment for given Post
@@ -32,7 +31,7 @@ export class CommentService {
     //TODO: implement edit existing comment
   }
 
-  fetchAllCommentByPostId(id: number): Observable<PostComment[]> {
+  fetchCommentAllByPostId(id: number): Observable<PostComment[]> {
     return this.http
       .get<PostComment[]>(environment.apiUrl + `/api/comment/get/all/post/${id}`);
   }

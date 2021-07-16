@@ -12,7 +12,7 @@ import { SubSink } from 'subsink';
 })
 export class CommentListComponent implements OnInit {
 
-  private subscriptions = new SubSink();
+  private subscriptions: SubSink = new SubSink();
   comments: PostComment[] = [];
 
   constructor(
@@ -27,12 +27,12 @@ export class CommentListComponent implements OnInit {
     const postIdFromRoute = Number(routeParams.get('postId'));
 
     // Find comments that correspond with the post id provided in route.
-    this.loadAllCommentByPostId(postIdFromRoute);
+    this.loadCommentAllByPostId(postIdFromRoute);
   }
 
-  loadAllCommentByPostId(id: number): void {
+  loadCommentAllByPostId(id: number): void {
     this.subscriptions.add(
-      this.commentService.fetchAllCommentByPostId(id)
+      this.commentService.fetchCommentAllByPostId(id)
         .subscribe(
           response => this.comments = response,
           error => console.log(error)));
