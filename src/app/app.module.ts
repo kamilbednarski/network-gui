@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,11 +14,7 @@ import { PostService } from './post.service';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentAddComponent } from './comment-add/comment-add.component';
 import { CommentService } from './comment.service';
-
-const routes: Routes = [
-  { path: '', component: PostListComponent },
-  { path: 'post/:postId', component: PostDetailsComponent }
-];
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +24,13 @@ const routes: Routes = [
     FooterComponent,
     PostDetailsComponent,
     CommentListComponent,
-    CommentAddComponent
+    CommentAddComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
     FormsModule
   ],
   providers: [
