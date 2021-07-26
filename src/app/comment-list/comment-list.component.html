@@ -1,7 +1,6 @@
 <div *ngFor="let comment of comments" class="container border border-top-0">
-
     <div class="p-4">
-
+        <!-- FIRST NAME, LAST NAME, USERNAME -->
         <div class="row">
             <div class="col">
                 <span class="fw-bold">
@@ -13,6 +12,7 @@
             </div>
         </div>
 
+        <!-- TIME OF CREATION -->
         <div class="row">
             <div class="col">
                 <div *ngIf="comment.ageOfCommentInDays==0" class="fw-light small text-secondary">
@@ -29,6 +29,7 @@
             </div>
         </div>
 
+        <!-- CONTENT -->
         <div class="row py-2">
             <div class="col">
                 <span>{{ comment.content }}</span>
@@ -36,16 +37,16 @@
         </div>
 
         <div class="row">
+            <!-- LIKE BUTTON -->
             <div class="col text-center">
                 <i class="bi bi-heart"></i>
                 <span *ngIf="comment.numberOfLikes>0" class="ms-1 fw-light small">{{ formatNumber(comment.numberOfLikes) }}</span>
             </div>
 
+            <!-- RESPOND BUTTON -->
             <div class="col text-center">
                 <i class="bi bi-chat"></i>
             </div>
         </div>
-
     </div>
-
 </div>

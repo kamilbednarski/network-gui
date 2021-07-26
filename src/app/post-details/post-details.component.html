@@ -1,7 +1,6 @@
 <div *ngIf="post" class="container border border-top-0">
-
     <div class="p-4">
-
+        <!-- FIRST NAME, LAST NAME, USERNAME -->
         <div class="row">
             <div class="col">
                 <span class="fw-bold">
@@ -13,14 +12,15 @@
             </div>
         </div>
 
+        <!-- CONTENT -->
         <div class="row py-3">
             <div class="col">
                 <div class="display-6">{{ post.content }}</div>
             </div>
         </div>
 
+        <!-- DATE OF CREATION -->
         <div class="row pb-3">
-            <input #uniqueElementIdValue value="{{ post.id }}" class="d-none">
             <div class="col">
                 <div *ngIf="post.ageOfPostInDays==0" class="fw-light small text-secondary">
                     {{ displayPostCreationDateForToday(post) }}
@@ -37,16 +37,19 @@
         </div>
 
         <div class="row">
+            <!-- COMMENTS -->
             <div class="col">
                 <span class="fw-bold small">{{ formatNumber(post.commentCounter) }}</span>
                 <span class="ps-1 small">comments</span>
             </div>
 
+            <!-- LIKES -->
             <div class="col">
                 <span class="fw-bold small">{{ formatNumber(post.numberOfLikes) }}</span>
                 <span class="ps-1 small">likes</span>
             </div>
 
+            <!-- SHARES -->
             <div class="col">
                 <span class="fw-bold small">{{ formatNumber(post.numberOfShares) }}</span>
                 <span class="ps-1 small">shares</span>
@@ -55,14 +58,17 @@
 
         <hr/>
         <div class="row">
+            <!-- LIKE BUTTON -->
             <div class="col text-center">
                 <i class="bi bi-heart"></i>
             </div>
 
+            <!-- SHARE BUTTON -->
             <div class="col text-center">
                 <i class="bi bi-share"></i>
             </div>
 
+            <!-- SEND BUTTON -->
             <div class="col text-center">
                 <i class="bi bi-box-arrow-up"></i>
             </div>
