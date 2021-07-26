@@ -1,20 +1,23 @@
-<nav class="navbar sticky-top navbar-light bg-white border-bottom">
-    <div class="container">
-
-        <div class="row">
-            <!-- SEARCH BAR -->
-            <div class="col ps-5">
-                <input class="form-control my-2 border rounded-pill fw-light" type="search" placeholder="Search..."
-                    aria-label="Search">
-            </div>
-
-            <!-- SEARCH BUTTON -->
-            <div class="col-auto">
-                <button class="btn btn-outline-success my-2 border border-success rounded-circle" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white border-bottom">
+    <div class="container-fluid">
+        <!-- BRANDING -->
+        <a class="navbar-brand fw-bold" href="/">network</a>
+        <!-- TOGGLER BUTTON -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <!-- PROFILE -->
+                <a class="nav-link" href="/profile">Profile</a>
+                <!-- LOGIN -->
+                <a class="nav-link" href="/login">Log In</a>
+                <!-- LOGOUT -->
+                <a class="nav-link" href="/logout">Log Out</a>
+                <!-- REGISTER -->
+                <a class="nav-link" href="/register">Register</a>
             </div>
         </div>
-
     </div>
 </nav>
