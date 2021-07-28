@@ -40,7 +40,7 @@
         <div class="row">
             <!-- COMMENTS -->
             <div class="col">
-                <div>
+                <div class="text-secondary">
                     <i class="bi bi-chat"></i>
                     <span *ngIf="post.commentCounter>0" class="ms-1 fw-light small">{{ formatNumber(post.commentCounter) }}</span>
                 </div>
@@ -48,7 +48,7 @@
 
             <!-- LIKES -->
             <div class="col">
-                <div>
+                <div class="text-secondary">
                     <i class="bi bi-heart"></i>
                     <span *ngIf="post.numberOfLikes>0" class="ms-1 fw-light small">{{ formatNumber(post.numberOfLikes) }}</span>
                 </div>
@@ -56,16 +56,9 @@
 
             <!-- SHARES -->
             <div class="col">
-                <div>
+                <div class="text-secondary">
                     <i class="bi bi-share"></i>
                     <span *ngIf="post.numberOfShares>0" class="ms-1 fw-light small">{{ formatNumber(post.numberOfShares) }}</span>
-                </div>
-            </div>
-
-            <!-- SEND BUTTON -->
-            <div class="col">
-                <div>
-                    <i class="bi bi-box-arrow-up"></i>
                 </div>
             </div>
         </div>

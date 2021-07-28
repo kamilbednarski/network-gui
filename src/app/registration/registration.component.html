@@ -1,1 +1,65 @@
-<p>registration works!</p>
+<div class="container login-container">
+    <!-- LOGO -->
+    <div class="text-center display-2 fw-bold text-success my-3">
+        network
+    </div>
+</div>
+<div class="container">
+    <div class="container login-container shadow mb-3 pt-3 pb-4 bg-body rounded">
+        <div class="fs-5 fw-light mb-3 text-center">Register new account</div>
+        <form>
+            <!-- FIRST NAME INPUT -->
+            <div class="mb-2">
+                <input type="name" class="form-control border rounded-pill fw-light" id="inputFirstName"
+                    placeholder="First name">
+            </div>
+
+            <!-- LAST NAME INPUT -->
+            <div class="mb-4">
+                <input type="name" class="form-control border rounded-pill fw-light" id="inputLastName"
+                    placeholder="Last name">
+            </div>
+
+            <!-- E-MAIL INPUT -->
+            <div class="mb-2">
+                <input type="e-mail" class="form-control border rounded-pill fw-light" id="inputEmail"
+                    placeholder="E-mail address">
+            </div>
+            <!-- USERNAME INPUT -->
+            <div class="mb-4">
+                <input type="username" class="form-control border rounded-pill fw-light" id="inputUsername"
+                    placeholder="Username">
+            </div>
+
+            <!-- PASSWORD INPUT -->
+            <div class="mb-2">
+                <input type="password" id="inputPassword" class="form-control border rounded-pill fw-light"
+                    aria-describedby="passwordHelpBlock" placeholder="Password">
+            </div>
+
+            <!-- PASSWORD CONFIRMATION INPUT -->
+            <div class="mb-3">
+                <input type="password" id="inputPasswordConfirmation" class="form-control border rounded-pill fw-light"
+                    aria-describedby="passwordHelpBlock" placeholder="Confirm password">
+            </div>
+
+            <!-- REGISTER BUTTON -->
+            <div class="d-grid gap-2 mb-3">
+                <button type="submit" class="btn btn-success border border-success rounded-pill">Register</button>
+            </div>
+
+        </form>
+
+        <hr class="mb-3" />
+
+        <!-- DESCRIPTION TEXT -->
+        <div class="fs-6 fw-light mb-3 text-center">
+            Already have an account?
+        </div>
+
+        <!-- LOG IN HREF BUTTON -->
+        <div class="d-grid gap-2">
+            <a href="/login" class="btn btn-sm btn-outline-success border border-success rounded-pill">Log In</a>
+        </div>
+    </div>
+</div>
