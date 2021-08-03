@@ -15,8 +15,8 @@ import { PostService } from '../post.service';
 export class PostDetailsComponent implements OnInit {
 
   private subscriptions = new SubSink();
-  post: Post | undefined;
-  uniquePostId: number | undefined;
+  post: Post = {} as Post;
+  uniquePostId: number = 0;
 
   constructor(
     private route: ActivatedRoute,
