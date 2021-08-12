@@ -30,6 +30,10 @@ export class CommentListComponent implements OnInit {
     this.loadCommentAllByPostId(postIdFromRoute);
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
   loadCommentAllByPostId(id: number): void {
     this.subscriptions.add(
       this.commentService.fetchCommentAllByPostId(id)
