@@ -22,8 +22,8 @@ export class RegistrationComponent implements OnInit {
       {
         firstName: '',
         lastName: '',
-        username: '',
         email: '',
+        username: '',
         password: '',
         passwordConfirmation: ''
       }
@@ -35,12 +35,33 @@ export class RegistrationComponent implements OnInit {
   }
 
   registerUser(registrationForm: FormGroup): void {
-    let username: string = registrationForm.get('username')?.value;
+    let firstName: string = registrationForm.get('firstName')?.value;
+    let lastName: string = registrationForm.get('lastName')?.value;
     let email: string = registrationForm.get('email')?.value;
+    let username: string = registrationForm.get('username')?.value;
     let password: string = registrationForm.get('password')?.value;
-    this.isUsernameValid(username);
+    let passwordConfirmation: string = registrationForm.get('passwordConfirmation')?.value;
+
+    //TODO: implement form validation
+    console.log(firstName);
+    console.log(lastName);
     this.isEmailFormatValid(email);
+    this.isUsernameValid(username);
     this.isPasswordFormatValid(password);
+    console.log(passwordConfirmation);
+
+    this.subscriptions.add(
+      this.registrationService.registerUser(
+        {
+          "firstName": firstName,
+          "lastName": lastName,
+          "email": email,
+          "username": username,
+          "password": password
+        })
+        .subscribe(
+          response => console.log(response),
+          error => console.error(error)));
   }
 
   isUsernameValid(username: string) {

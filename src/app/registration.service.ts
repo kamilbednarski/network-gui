@@ -16,6 +16,11 @@ export class RegistrationService {
     return true;
   }
 
+  registerUser(user: Object): Observable<any> {
+    return this.http
+      .post<any>(environment.apiUrl + '/api/registration', user);
+  }
+
   isUsernameValid(username: string): Observable<boolean> {
     return this.http
       .post<boolean>(environment.apiUrl + '/api/registration/validate/isUsernameValid', username);
