@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubSink } from 'subsink';
 import { RegistrationService } from '../registration.service';
 
@@ -20,12 +20,47 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group(
       {
-        firstName: '',
-        lastName: '',
-        email: '',
-        username: '',
-        password: '',
-        passwordConfirmation: ''
+        firstName:
+          [
+            '',
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(50)
+          ],
+        lastName:
+          [
+            '',
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(50)
+          ],
+        email:
+          [
+            '',
+            Validators.required,
+            Validators.minLength(7),
+            Validators.maxLength(255)
+          ],
+        username:
+          [
+            '',
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(255)
+          ],
+        password:
+          [
+            '', Validators.required,
+            Validators.minLength(12),
+            Validators.maxLength(128)
+          ],
+        passwordConfirmation:
+          [
+            '',
+            Validators.required,
+            Validators.minLength(12),
+            Validators.maxLength(128)
+          ]
       }
     )
   }

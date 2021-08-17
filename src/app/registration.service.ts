@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { UserRegistrationRequest } from './userRegistrationRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,9 @@ export class RegistrationService {
     return true;
   }
 
-  registerUser(user: Object): Observable<any> {
+  registerUser(request: UserRegistrationRequest): Observable<Object> {
     return this.http
-      .post<any>(environment.apiUrl + '/api/registration', user);
+      .post<UserRegistrationRequest>(environment.apiUrl + '/api/registration', request);
   }
 
   isUsernameValid(username: string): Observable<boolean> {

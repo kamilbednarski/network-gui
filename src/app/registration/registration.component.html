@@ -45,7 +45,7 @@
 
             <!-- REGISTER BUTTON -->
             <div class="d-grid gap-2 mb-3">
-                <button type="submit" class="btn btn-success border border-success rounded-pill">Register</button>
+                <button type="submit" [disabled]="!registrationForm.valid" class="btn btn-success border border-success rounded-pill">Register</button>
             </div>
 
         </form>
