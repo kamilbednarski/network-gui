@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SubSink } from 'subsink';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -8,10 +10,38 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
+  private subscriptions: SubSink = new SubSink();
+  loginForm: FormGroup = new FormGroup({});
+
   constructor(
-    private loginService: LoginService
-  ) { }
+    private loginService: LoginService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group(
+      {
+        username: ['', Validators.required],
+        password: ['', Validators.required],
+      }
+    )
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  loginUser(loginForm: FormGroup): void {
+    let username: string = loginForm.get('username')?.value;
+    let password: string = loginForm.get('password')?.value;
+    this.subscriptions.add(
+      this.loginService
+        .loginUser(
+          {
+            username: username,
+            password: password
+          })
+        .subscribe(
+          response => console.log(response),
+          error => console.error(error)));
   }
 }

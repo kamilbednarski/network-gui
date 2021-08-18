@@ -10,47 +10,50 @@
         <form [formGroup]="registrationForm" (ngSubmit)="registerUser(registrationForm)">
             <!-- FIRST NAME INPUT -->
             <div class="mb-2">
-                <input formControlName="firstName" type="name" class="form-control border rounded-pill fw-light" id="inputFirstName"
-                    placeholder="First name">
+                <input formControlName="firstName" type="name" class="form-control border rounded-pill fw-light"
+                    id="inputFirstName" placeholder="First name">
             </div>
 
             <!-- LAST NAME INPUT -->
             <div class="mb-4">
-                <input formControlName="lastName" type="name" class="form-control border rounded-pill fw-light" id="inputLastName"
-                    placeholder="Last name">
+                <input formControlName="lastName" type="name" class="form-control border rounded-pill fw-light"
+                    id="inputLastName" placeholder="Last name">
             </div>
 
             <!-- E-MAIL INPUT -->
             <div class="mb-2">
-                <input formControlName="email" type="e-mail" class="form-control border rounded-pill fw-light" id="inputEmail"
-                    placeholder="E-mail address">
+                <input formControlName="email" type="e-mail" class="form-control border rounded-pill fw-light"
+                    id="inputEmail" placeholder="E-mail address">
             </div>
             <!-- USERNAME INPUT -->
             <div class="mb-4">
-                <input formControlName="username" type="username" class="form-control border rounded-pill fw-light" id="inputUsername"
-                    placeholder="Username">
+                <input formControlName="username" type="username" class="form-control border rounded-pill fw-light"
+                    id="inputUsername" placeholder="Username">
             </div>
 
             <!-- PASSWORD INPUT -->
             <div class="mb-2">
-                <input formControlName="password" type="password" id="inputPassword" class="form-control border rounded-pill fw-light"
-                    aria-describedby="passwordHelpBlock" placeholder="Password">
+                <input formControlName="password" type="password" id="inputPassword"
+                    class="form-control border rounded-pill fw-light" aria-describedby="passwordHelpBlock"
+                    placeholder="Password">
             </div>
 
             <!-- PASSWORD CONFIRMATION INPUT -->
             <div class="mb-3">
-                <input formControlName="passwordConfirmation" type="password" id="inputPasswordConfirmation" class="form-control border rounded-pill fw-light"
-                    aria-describedby="passwordHelpBlock" placeholder="Confirm password">
+                <input formControlName="passwordConfirmation" type="password" id="inputPasswordConfirmation"
+                    class="form-control border rounded-pill fw-light" aria-describedby="passwordHelpBlock"
+                    placeholder="Confirm password">
             </div>
 
             <!-- REGISTER BUTTON -->
             <div class="d-grid gap-2 mb-3">
-                <button type="submit" [disabled]="!registrationForm.valid" class="btn btn-success border border-success rounded-pill">Register</button>
+                <button type="submit" [disabled]="!registrationForm.valid"
+                    class="btn btn-success border border-success rounded-pill">Register</button>
             </div>
 
         </form>
 
-        <hr class="mb-3"/>
+        <hr class="mb-3" />
 
         <!-- DESCRIPTION TEXT -->
         <div class="fs-6 fw-light mb-3 text-center">

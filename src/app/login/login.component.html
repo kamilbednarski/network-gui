@@ -12,11 +12,11 @@
 </div>
 <div class="container">
     <div class="container login-container shadow mb-3 pt-3 pb-4 bg-body rounded">
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
             <!-- USERNAME INPUT -->
             <div class="mb-2">
-                <input type="username" class="form-control border rounded-pill fw-light" id="inputUsername"
-                    placeholder="Username">
+                <input formControlName="username" type="username" class="form-control border rounded-pill fw-light"
+                    id="inputUsername" placeholder="Username">
             </div>
 
             <!-- PASSWORD INPUT -->
@@ -27,7 +27,7 @@
 
             <!-- LOG IN BUTTON -->
             <div class="d-grid gap-2 mb-3">
-                <button type="submit" class="btn btn-success border border-success rounded-pill">Log In</button>
+                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success border border-success rounded-pill">Log In</button>
             </div>
 
         </form>
@@ -46,7 +46,8 @@
 
         <!-- REGISTRATION HREF BUTTON -->
         <div class="d-grid gap-2">
-            <a href="/register" class="btn btn-sm btn-outline-primary border border-primary rounded-pill">Create New Account</a>
+            <a href="/register" class="btn btn-sm btn-outline-primary border border-primary rounded-pill">Create New
+                Account</a>
         </div>
     </div>
 </div>

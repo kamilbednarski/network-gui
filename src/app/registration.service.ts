@@ -19,7 +19,7 @@ export class RegistrationService {
 
   registerUser(request: UserRegistrationRequest): Observable<Object> {
     return this.http
-      .post<UserRegistrationRequest>(environment.apiUrl + '/api/registration', request);
+      .post<Object>(environment.apiUrl + '/api/registration', request);
   }
 
   isUsernameValid(username: string): Observable<boolean> {
