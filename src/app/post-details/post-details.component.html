@@ -1,4 +1,4 @@
-<div *ngIf="post" class="container border border-top-0">
+<div *ngIf="post && post.user" class="container border border-top-0">
     <div class="p-4">
         <!-- FIRST NAME, LAST NAME, USERNAME -->
         <div class="row">
@@ -80,4 +80,4 @@
 
 <app-comment-add [uniquePostId]="uniquePostId"></app-comment-add>
 
-<app-comment-list></app-comment-list>
+<app-comment-list *ngIf="post.commentCounter > 0"></app-comment-list>

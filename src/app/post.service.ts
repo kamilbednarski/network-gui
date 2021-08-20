@@ -37,5 +37,4 @@ export class PostService {
   formatNumber(number: number): string | number {
     return Utils.formatNumber(number);
   }
-
 }

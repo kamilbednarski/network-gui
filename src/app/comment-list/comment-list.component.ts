@@ -33,6 +33,10 @@ export class CommentListComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
+  checkComment(comment: PostComment) {
+    console.log("comment", comment);
+    return comment != undefined;
+  }
 
   loadCommentAllByPostId(id: number): void {
     this.subscriptions.add(
