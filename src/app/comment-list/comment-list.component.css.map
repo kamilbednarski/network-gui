@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "comment-list.component.sass"
+    ],
+    "names": [],
+    "file": "comment-list.component.css"
+}

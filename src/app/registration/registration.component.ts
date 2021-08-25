@@ -23,43 +23,56 @@ export class RegistrationComponent implements OnInit {
         firstName:
           [
             '',
-            Validators.required,
-            Validators.minLength(2),
-            Validators.maxLength(50)
+            [
+              Validators.required,
+              Validators.minLength(2),
+              Validators.maxLength(50)
+            ]
           ],
         lastName:
           [
             '',
-            Validators.required,
-            Validators.minLength(2),
-            Validators.maxLength(50)
+            [
+              Validators.required,
+              Validators.minLength(2),
+              Validators.maxLength(50)
+            ]
           ],
         email:
           [
             '',
-            Validators.required,
-            Validators.minLength(7),
-            Validators.maxLength(255)
+            [
+              Validators.required,
+              Validators.minLength(7),
+              Validators.maxLength(255)
+            ]
           ],
         username:
           [
             '',
-            Validators.required,
-            Validators.minLength(3),
-            Validators.maxLength(255)
+            [
+              Validators.required,
+              Validators.minLength(3),
+              Validators.maxLength(255)
+            ]
           ],
         password:
           [
-            '', Validators.required,
-            Validators.minLength(12),
-            Validators.maxLength(128)
+            '',
+            [
+              Validators.required,
+              Validators.minLength(12),
+              Validators.maxLength(128)
+            ]
           ],
         passwordConfirmation:
           [
             '',
-            Validators.required,
-            Validators.minLength(12),
-            Validators.maxLength(128)
+            [
+              Validators.required,
+              Validators.minLength(12),
+              Validators.maxLength(128)
+            ]
           ]
       }
     )
@@ -128,4 +141,11 @@ export class RegistrationComponent implements OnInit {
           response => console.log(response),
           error => console.log(error)));
   }
+
+  get firstName() { return this.registrationForm.get('firstName'); }
+  get lastName() { return this.registrationForm.get('lastName'); }
+  get email() { return this.registrationForm.get('email'); }
+  get username() { return this.registrationForm.get('username'); }
+  get password() { return this.registrationForm.get('password'); }
+  get passwordConfirmation() { return this.registrationForm.get('passwordConfirmation'); }
 }

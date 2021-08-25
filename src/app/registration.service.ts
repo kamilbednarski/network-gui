@@ -13,13 +13,13 @@ export class RegistrationService {
 
   constructor(private http: HttpClient) { }
 
-  isRegistrationFormValid(registrationForm: FormGroup): boolean {
-    return true;
-  }
-
   registerUser(request: UserRegistrationRequest): Observable<Object> {
     return this.http
       .post<Object>(environment.apiUrl + '/api/registration', request);
+  }
+
+  isRegistrationFormValid(registrationForm: FormGroup): boolean {
+    return true;
   }
 
   isUsernameValid(username: string): Observable<boolean> {

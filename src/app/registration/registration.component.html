@@ -8,38 +8,103 @@
     <div class="container login-container shadow mb-3 pt-3 pb-4 bg-body rounded">
         <div class="fs-5 fw-light mb-3 text-center">Register new account</div>
         <form [formGroup]="registrationForm" (ngSubmit)="registerUser(registrationForm)">
-            <!-- FIRST NAME INPUT -->
+            <!-- FIRST NAME -->
             <div class="mb-2">
+                <!-- VALIDATORS -->
+                <div class="text-center">
+                    <small *ngIf="firstName?.errors?.required && firstName?.touched" class="text-danger">
+                        Please type your name.
+                    </small>
+                    <small *ngIf="firstName?.errors?.minlength" class="text-danger">
+                        Minimum number of characters is 2.
+                    </small>
+                </div>
+                <!-- INPUT -->
                 <input formControlName="firstName" type="name" class="form-control border rounded-pill fw-light"
                     id="inputFirstName" placeholder="First name">
             </div>
-
-            <!-- LAST NAME INPUT -->
+            <!-- LAST NAME -->
             <div class="mb-4">
+                <!-- VALIDATORS -->
+                <div class="text-center">
+                    <small *ngIf="lastName?.errors?.required && lastName?.touched" class="text-danger">
+                        Please type your last name.
+                    </small>
+                    <small *ngIf="lastName?.errors?.minlength" class="text-danger">
+                        Minimum number of characters is 2.
+                    </small>
+                </div>
+                <!-- INPUT -->
                 <input formControlName="lastName" type="name" class="form-control border rounded-pill fw-light"
                     id="inputLastName" placeholder="Last name">
             </div>
 
-            <!-- E-MAIL INPUT -->
+            <!-- E-MAIL -->
             <div class="mb-2">
+                <!-- VALIDATORS -->
+                <div class="text-center">
+                    <small *ngIf="email?.errors?.required && email?.touched" class="text-danger">
+                        Please type your e-mail address.
+                    </small>
+                    <small *ngIf="email?.errors?.minlength" class="text-danger">
+                        Minimum number of characters is 7.
+                    </small>
+                </div>
+                <!-- INPUT -->
                 <input formControlName="email" type="e-mail" class="form-control border rounded-pill fw-light"
                     id="inputEmail" placeholder="E-mail address">
             </div>
-            <!-- USERNAME INPUT -->
+            <!-- USERNAME -->
             <div class="mb-4">
+                <!-- VALIDATORS -->
+                <div class="text-center">
+                    <small *ngIf="username?.errors?.required && username?.touched" class="text-danger">
+                        Please type your username.
+                    </small>
+                    <small *ngIf="username?.errors?.minlength" class="text-danger">
+                        Minimum number of characters is 3.
+                    </small>
+                </div>
+                <!-- INPUT -->
                 <input formControlName="username" type="username" class="form-control border rounded-pill fw-light"
                     id="inputUsername" placeholder="Username">
             </div>
 
-            <!-- PASSWORD INPUT -->
+            <!-- PASSWORD -->
             <div class="mb-2">
+                <!-- VALIDATORS -->
+                <div class="text-center">
+                    <small *ngIf="password?.touched && passwordConfirmation?.touched
+                        && password?.value.length>0 && passwordConfirmation?.value.length>0
+                        && password?.value!=passwordConfirmation?.value" class="text-danger">
+                        Password inputs must match.
+                    </small>
+                    <small *ngIf="password?.errors?.required && password?.touched" class="text-danger">
+                        Please type your password.
+                    </small>
+                    <small *ngIf="password?.errors?.minlength" class="text-danger">
+                        Minimum number of characters is 12.
+                    </small>
+                </div>
+                <!-- INPUT -->
                 <input formControlName="password" type="password" id="inputPassword"
                     class="form-control border rounded-pill fw-light" aria-describedby="passwordHelpBlock"
                     placeholder="Password">
             </div>
 
-            <!-- PASSWORD CONFIRMATION INPUT -->
+            <!-- PASSWORD CONFIRMATION -->
             <div class="mb-3">
+                <!-- VALIDATORS -->
+                <div class="text-center">
+                    <small *ngIf="passwordConfirmation?.errors?.required && passwordConfirmation?.touched"
+                        class="text-danger">
+                        Please confirm your password.
+                    </small>
+                    <small *ngIf="passwordConfirmation?.errors?.minlength" class="text-danger">
+                        Minimum number of characters is 12.
+                    </small>
+                </div>
+                <!-- INPUT -->
                 <input formControlName="passwordConfirmation" type="password" id="inputPasswordConfirmation"
                     class="form-control border rounded-pill fw-light" aria-describedby="passwordHelpBlock"
                     placeholder="Confirm password">
