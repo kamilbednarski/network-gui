@@ -12,11 +12,15 @@
             <div class="mb-2">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="firstName?.errors?.required && firstName?.touched" class="text-danger">
+                    <small *ngIf="firstName?.errors?.required && firstName?.touched"
+                        class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your name.
                     </small>
-                    <small *ngIf="firstName?.errors?.minlength" class="text-danger">
-                        Minimum number of characters is 2.
+                    <small *ngIf="firstName?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Minimum name length is 2.
+                    </small>
+                    <small *ngIf="firstName?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Maximum name length is 50.
                     </small>
                 </div>
                 <!-- INPUT -->
@@ -27,27 +31,34 @@
             <div class="mb-4">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="lastName?.errors?.required && lastName?.touched" class="text-danger">
+                    <small *ngIf="lastName?.errors?.required && lastName?.touched"
+                        class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your last name.
                     </small>
-                    <small *ngIf="lastName?.errors?.minlength" class="text-danger">
-                        Minimum number of characters is 2.
+                    <small *ngIf="lastName?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Minimum last name length is 2.
+                    </small>
+                    <small *ngIf="lastName?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Maximum last name length is 50.
                     </small>
                 </div>
                 <!-- INPUT -->
                 <input formControlName="lastName" type="name" class="form-control border rounded-pill fw-light"
                     id="inputLastName" placeholder="Last name">
             </div>
-
             <!-- E-MAIL -->
             <div class="mb-2">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="email?.errors?.required && email?.touched" class="text-danger">
+                    <small *ngIf="email?.errors?.required && email?.touched"
+                        class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your e-mail address.
                     </small>
-                    <small *ngIf="email?.errors?.minlength" class="text-danger">
-                        Minimum number of characters is 7.
+                    <small *ngIf="email?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Minimum email length is 7.
+                    </small>
+                    <small *ngIf="email?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Maximum email length is 255.
                     </small>
                 </div>
                 <!-- INPUT -->
@@ -58,32 +69,40 @@
             <div class="mb-4">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="username?.errors?.required && username?.touched" class="text-danger">
+                    <small *ngIf="username?.errors?.required && username?.touched"
+                        class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your username.
                     </small>
-                    <small *ngIf="username?.errors?.minlength" class="text-danger">
-                        Minimum number of characters is 3.
+                    <small *ngIf="username?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Minimum username length is 3.
+                    </small>
+                    <small *ngIf="username?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Maximum username length is 30.
                     </small>
                 </div>
                 <!-- INPUT -->
                 <input formControlName="username" type="username" class="form-control border rounded-pill fw-light"
                     id="inputUsername" placeholder="Username">
             </div>
-
             <!-- PASSWORD -->
             <div class="mb-2">
                 <!-- VALIDATORS -->
                 <div class="text-center">
                     <small *ngIf="password?.touched && passwordConfirmation?.touched
                         && password?.value.length>0 && passwordConfirmation?.value.length>0
-                        && password?.value!=passwordConfirmation?.value" class="text-danger">
+                        && password?.value!=passwordConfirmation?.value"
+                        class="text-danger shadow rounded-pill px-2 py-1">
                         Password inputs must match.
                     </small>
-                    <small *ngIf="password?.errors?.required && password?.touched" class="text-danger">
+                    <small *ngIf="password?.errors?.required && password?.touched"
+                        class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your password.
                     </small>
-                    <small *ngIf="password?.errors?.minlength" class="text-danger">
-                        Minimum number of characters is 12.
+                    <small *ngIf="password?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Minimum password length is 12.
+                    </small>
+                    <small *ngIf="password?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Maximum password length is 128.
                     </small>
                 </div>
                 <!-- INPUT -->
@@ -91,17 +110,20 @@
                     class="form-control border rounded-pill fw-light" aria-describedby="passwordHelpBlock"
                     placeholder="Password">
             </div>
-
             <!-- PASSWORD CONFIRMATION -->
             <div class="mb-3">
                 <!-- VALIDATORS -->
                 <div class="text-center">
                     <small *ngIf="passwordConfirmation?.errors?.required && passwordConfirmation?.touched"
-                        class="text-danger">
+                        class="text-danger shadow rounded-pill px-2 py-1">
                         Please confirm your password.
                     </small>
-                    <small *ngIf="passwordConfirmation?.errors?.minlength" class="text-danger">
-                        Minimum number of characters is 12.
+                    <small *ngIf="passwordConfirmation?.errors?.minlength"
+                        class="text-danger shadow rounded-pill px-2 py-1">
+                        Minimum password length is 12.
+                    </small>
+                    <small *ngIf="passwordConfirmation?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                        Maximum password length is 128.
                     </small>
                 </div>
                 <!-- INPUT -->
@@ -109,22 +131,17 @@
                     class="form-control border rounded-pill fw-light" aria-describedby="passwordHelpBlock"
                     placeholder="Confirm password">
             </div>
-
             <!-- REGISTER BUTTON -->
             <div class="d-grid gap-2 mb-3">
                 <button type="submit" [disabled]="!registrationForm.valid"
                     class="btn btn-success border border-success rounded-pill">Register</button>
             </div>
-
         </form>
-
         <hr class="mb-3" />
-
         <!-- DESCRIPTION TEXT -->
         <div class="fs-6 fw-light mb-3 text-center">
             Already have an account?
         </div>
-
         <!-- LOG IN HREF BUTTON -->
         <div class="d-grid gap-2">
             <a href="/login" class="btn btn-sm btn-outline-success border border-success rounded-pill">Log In</a>

@@ -53,7 +53,7 @@ export class RegistrationComponent implements OnInit {
             [
               Validators.required,
               Validators.minLength(3),
-              Validators.maxLength(255)
+              Validators.maxLength(30)
             ]
           ],
         password:
