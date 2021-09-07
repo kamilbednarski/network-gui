@@ -1,14 +1,14 @@
-<div *ngIf="post && post.user" class="container border border-top-0">
+<div *ngIf="post" class="container border border-top-0">
     <div class="p-4">
         <!-- FIRST NAME, LAST NAME, USERNAME -->
         <div class="row">
             <div class="col">
                 <span class="fw-bold">
-                    <span>{{ post.user.firstName }}</span>
-                    <span class="ms-1">{{ post.user.lastName }}</span>
+                    <span>{{ post.authorFirstName }}</span>
+                    <span class="ms-1">{{ post.authorLastName }}</span>
                 </span>
                 <span><i class="bi bi-dot"></i></span>
-                <span class="fw-light text-secondary">@{{ post.user.username }}</span>
+                <span class="fw-light text-secondary">@{{ post.authorUsername }}</span>
             </div>
         </div>
 
@@ -39,7 +39,7 @@
         <div class="row">
             <!-- COMMENTS -->
             <div class="col">
-                <span class="fw-bold small">{{ formatNumber(post.commentCounter) }}</span>
+                <span class="fw-bold small">{{ formatNumber(post.numberOfComments) }}</span>
                 <span class="ps-1 small">comments</span>
             </div>
 
@@ -80,4 +80,4 @@
 
 <app-comment-add [uniquePostId]="uniquePostId"></app-comment-add>
 
-<app-comment-list *ngIf="post.commentCounter > 0"></app-comment-list>
+<app-comment-list *ngIf="post.numberOfComments > 0"></app-comment-list>

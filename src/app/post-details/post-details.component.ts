@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SubSink } from 'subsink';
 
 import { CommentService } from '../comment.service';
-import { Post } from "../post";
+import { PostResponseObject } from "../postResponseObject";
 import { PostService } from '../post.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { PostService } from '../post.service';
 export class PostDetailsComponent implements OnInit {
 
   private subscriptions = new SubSink();
-  post: Post = {} as Post;
+  post: PostResponseObject = {} as PostResponseObject;
   uniquePostId: number = 0;
 
   constructor(
@@ -45,11 +45,11 @@ export class PostDetailsComponent implements OnInit {
           error => console.log('HTTP Error', error)));
   }
 
-  displayPostCreationDateForToday(post: Post): string {
+  displayPostCreationDateForToday(post: PostResponseObject): string {
     return this.postService.displayPostCreationDateForToday(post);
   }
 
-  displayPostCreationDateForYesterday(post: Post): string {
+  displayPostCreationDateForYesterday(post: PostResponseObject): string {
     return this.postService.displayPostCreationDateForYesterday(post);
   }
 

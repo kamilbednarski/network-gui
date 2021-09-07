@@ -1,4 +1,4 @@
-import { Post } from './post';
+import { PostResponseObject } from './postResponseObject';
 import { PostComment } from './comment';
 
 export const formatNumber = (number: number) => {
@@ -7,10 +7,10 @@ export const formatNumber = (number: number) => {
       : Math.sign(number) * Math.abs(number);
 }
 
-export const displayObjectCreationDateForToday = (object: Post | PostComment) => {
+export const displayObjectCreationDateForToday = (object: PostResponseObject | PostComment) => {
     return "today at " + object.timeOfCreation;
 }
 
-export const displayObjectCreationDateForYesterday = (object: Post | PostComment) => {
+export const displayObjectCreationDateForYesterday = (object: PostResponseObject | PostComment) => {
     return "yesterday at " + object.timeOfCreation;
 }

@@ -4,11 +4,11 @@
         <div class="row">
             <div class="col">
                 <span class="fw-bold">
-                    <span>{{ post.user.firstName }}</span>
-                    <span class="ms-1">{{ post.user.lastName }}</span>
+                    <span>{{ post.authorFirstName}}</span>
+                    <span class="ms-1">{{ post.authorLastName }}</span>
                 </span>
                 <span><i class="bi bi-dot"></i></span>
-                <span class="fw-light text-secondary">@{{ post.user.username }}</span>
+                <span class="fw-light text-secondary">@{{ post.authorUsername }}</span>
             </div>
         </div>
 
@@ -32,7 +32,7 @@
         <!-- LINK TO POST DETAILS -->
         <div class="row py-3">
             <div class="col d-flex position-relative">
-                <a [routerLink]="['/post', post.id]" class="stretched-link"></a>
+                <a [routerLink]="['/post', post.postId]" class="stretched-link"></a>
                 <div>{{ post.content }}</div>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="col">
                 <div class="text-secondary">
                     <i class="bi bi-chat"></i>
-                    <span *ngIf="post.commentCounter>0" class="ms-1 fw-light small">{{ formatNumber(post.commentCounter) }}</span>
+                    <span *ngIf="post.numberOfComments>0" class="ms-1 fw-light small">{{ formatNumber(post.numberOfComments) }}</span>
                 </div>
             </div>
 

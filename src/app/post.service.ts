@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import * as Utils from "./utils";
-import { Post } from './post';
+import { PostResponseObject } from './postResponseObject';
 
 @Injectable({
   providedIn: 'root'
@@ -16,21 +16,21 @@ export class PostService {
     private http: HttpClient
   ) { }
 
-  fetchPostAll(): Observable<Post[]> {
+  fetchPostAll(): Observable<PostResponseObject[]> {
     return this.http
-      .get<Post[]>(environment.apiUrl + '/api/post/get/all/sort/date');
+      .get<PostResponseObject[]>(environment.apiUrl + '/api/post/get/all/sort/date');
   }
 
-  fetchPostById(id: number): Observable<Post> {
+  fetchPostById(id: number): Observable<PostResponseObject> {
     return this.http
-      .get<Post>(environment.apiUrl + `/api/post/get/id/${id}`);
+      .get<PostResponseObject>(environment.apiUrl + `/api/post/get/id/${id}`);
   }
 
-  displayPostCreationDateForToday(post: Post): string {
+  displayPostCreationDateForToday(post: PostResponseObject): string {
     return Utils.displayObjectCreationDateForToday(post);
   }
 
-  displayPostCreationDateForYesterday(post: Post): string {
+  displayPostCreationDateForYesterday(post: PostResponseObject): string {
     return Utils.displayObjectCreationDateForYesterday(post);
   }
 
