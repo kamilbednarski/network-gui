@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { CommentService } from '../comment.service';
-import { PostComment } from "../comment";
+import { CommentRequestObject } from "../commentRequestObject";
 import { SubSink } from 'subsink';
 
 @Component({
@@ -13,7 +13,7 @@ import { SubSink } from 'subsink';
 export class CommentListComponent implements OnInit {
 
   private subscriptions: SubSink = new SubSink();
-  comments: PostComment[] = [];
+  comments: CommentRequestObject[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +33,7 @@ export class CommentListComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
-  checkComment(comment: PostComment) {
+  checkComment(comment: CommentRequestObject) {
     console.log("comment", comment);
     return comment != undefined;
   }
@@ -46,11 +46,11 @@ export class CommentListComponent implements OnInit {
           error => console.log(error)));
   }
 
-  displayCommentCreationDateForToday(comment: PostComment): string {
+  displayCommentCreationDateForToday(comment: CommentRequestObject): string {
     return this.commentService.displayCommentCreationDateForToday(comment);
   }
 
-  displayCommentCreationDateForYesterday(comment: PostComment): string {
+  displayCommentCreationDateForYesterday(comment: CommentRequestObject): string {
     return this.commentService.displayCommentCreationDateForYesterday(comment);
   }
 

@@ -1,5 +1,5 @@
 import { PostResponseObject } from './postResponseObject';
-import { PostComment } from './comment';
+import { CommentRequestObject } from './commentRequestObject';
 
 export const formatNumber = (number: number) => {
     return Math.abs(number) > 999
@@ -7,10 +7,10 @@ export const formatNumber = (number: number) => {
       : Math.sign(number) * Math.abs(number);
 }
 
-export const displayObjectCreationDateForToday = (object: PostResponseObject | PostComment) => {
+export const displayObjectCreationDateForToday = (object: PostResponseObject | CommentRequestObject) => {
     return "today at " + object.timeOfCreation;
 }
 
-export const displayObjectCreationDateForYesterday = (object: PostResponseObject | PostComment) => {
+export const displayObjectCreationDateForYesterday = (object: PostResponseObject | CommentRequestObject) => {
     return "yesterday at " + object.timeOfCreation;
 }
