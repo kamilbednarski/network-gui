@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import * as Utils from "./utils";
-import { CommentRequestObject } from './commentRequestObject';
+import { CommentResponseObject } from './commentResponseObject';
 
 @Injectable()
 export class CommentService {
@@ -31,16 +31,16 @@ export class CommentService {
     //TODO: implement edit existing comment
   }
 
-  fetchCommentAllByPostId(id: number): Observable<CommentRequestObject[]> {
+  fetchCommentAllByPostId(id: number): Observable<CommentResponseObject[]> {
     return this.http
-      .get<CommentRequestObject[]>(environment.apiUrl + `/api/comment/get/all/post/${id}`);
+      .get<CommentResponseObject[]>(environment.apiUrl + `/api/comment/get/all/post/${id}`);
   }
 
-  displayCommentCreationDateForToday(comment: CommentRequestObject): string {
+  displayCommentCreationDateForToday(comment: CommentResponseObject): string {
     return Utils.displayObjectCreationDateForToday(comment);
   }
 
-  displayCommentCreationDateForYesterday(comment: CommentRequestObject): string {
+  displayCommentCreationDateForYesterday(comment: CommentResponseObject): string {
     return Utils.displayObjectCreationDateForYesterday(comment);
   }
 

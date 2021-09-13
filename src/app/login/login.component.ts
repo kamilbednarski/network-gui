@@ -16,12 +16,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private formBuilder: FormBuilder) { }
-
+  //  [disabled]="!loginForm.valid"
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group(
       {
-        username: ['', Validators.required],
-        password: ['', Validators.required],
+        username: ['', [Validators.required]],
+        password: ['', [Validators.required]],
       }
     )
   }
@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
 
   loginUser(loginForm: FormGroup): void {
     let username: string = loginForm.get('username')?.value;
+    console.log(username);
     let password: string = loginForm.get('password')?.value;
+    console.log(password);
     this.subscriptions.add(
       this.loginService
         .loginUser(
@@ -44,4 +46,7 @@ export class LoginComponent implements OnInit {
           response => console.log(response),
           error => console.error(error)));
   }
+
+  get firstName() { return this.loginForm.get('username'); }
+  get lastName() { return this.loginForm.get('password'); }
 }

@@ -1,4 +1,4 @@
-export interface CommentRequestObject {
+export interface CommentResponseObject {
     commendId: number,
     content: string,
     numberOfLikes: number,

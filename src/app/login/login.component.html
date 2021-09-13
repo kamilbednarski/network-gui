@@ -18,13 +18,13 @@
             </div>
             <!-- PASSWORD INPUT -->
             <div class="mb-3">
-                <input type="password" id="inputPassword" class="form-control border rounded-pill fw-light"
-                    aria-describedby="passwordHelpBlock" placeholder="Password">
+                <input formControlName="password" type="password" id="inputPassword"
+                    class="form-control border rounded-pill fw-light" aria-describedby="passwordHelpBlock"
+                    placeholder="Password">
             </div>
             <!-- LOG IN BUTTON -->
             <div class="d-grid gap-2 mb-3">
-                <button [disabled]="!loginForm.valid" type="submit"
-                    class="btn btn-success border border-success rounded-pill">Log In</button>
+                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success border border-success rounded-pill">Log In</button>
             </div>
         </form>
         <!-- FORGOT PASSWORD HREF -->
