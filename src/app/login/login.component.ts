@@ -37,11 +37,7 @@ export class LoginComponent implements OnInit {
     console.log(password);
     this.subscriptions.add(
       this.loginService
-        .loginUser(
-          {
-            username: username,
-            password: password
-          })
+        .loginUser(username, password)
         .subscribe(
           response => console.log(response),
           error => console.error(error)));

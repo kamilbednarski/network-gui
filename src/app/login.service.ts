@@ -11,8 +11,11 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  loginUser(loginForm: Object): Observable<Object> {
+  loginUser(username: string, password: string): Observable<Object> {
+    let loginFormData = new FormData();
+    loginFormData.append("username", username);
+    loginFormData.append("password", password);
     return this.http
-      .post<Object>(environment.apiUrl + "/login", loginForm);
+      .post<Object>(environment.apiUrl + "/login", loginFormData);
   }
 }
