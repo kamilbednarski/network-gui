@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,uBAAuB,CAAC;EACpB,SAAS,EAAE,KAAK;CAAG",
     "sources": [
         "registration.component.sass"
     ],
