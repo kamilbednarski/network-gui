@@ -16,6 +16,7 @@ import { CommentAddComponent } from './comment-add/comment-add.component';
 import { CommentService } from './comment.service';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegistrationComponent } from './registration/registration.component';
     CommentListComponent,
     CommentAddComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
