@@ -1,8 +1,13 @@
 import { environment } from '../environments/environment';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+const LOGIN_PATH = "/api/auth/login"
+const HTTP_HEADERS = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +16,10 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  loginUser(username: string, password: string): Observable<Object> {
-    let loginRequest = new FormData();
-    loginRequest.append("username", username);
-    loginRequest.append("password", password);
-    return this.http
-      .post<Object>(environment.apiUrl + "/api/auth/login", loginRequest);
+  login(username: string, password: string): Observable<any> { // TODO: migrate to specific object
+    return this.http.post(
+      environment.apiUrl + LOGIN_PATH,
+      { username, password },
+      HTTP_HEADERS);
   }
 }

@@ -25,8 +25,7 @@ export class CommentListComponent implements OnInit {
     // Get the post id from the current route.
     const routeParams = this.route.snapshot.paramMap;
     const postIdFromRoute = Number(routeParams.get('postId'));
-
-    // Find comments that correspond with the post id provided in route.
+    // Find comments that corespond with the post id provided in route.
     this.loadCommentAllByPostId(postIdFromRoute);
   }
 
