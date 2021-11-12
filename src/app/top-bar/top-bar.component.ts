@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../token-storage.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
   }
 
+  public logOut(): void {
+    this.tokenStorageService.signOut();
+  }
+
+  public isUserLoggedIn(): boolean {
+    return this.tokenStorageService.isUserLoggedIn();
+  }
 }

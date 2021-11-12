@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,25 +9,29 @@ import { TokenStorageService } from '../token-storage.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(
+    private tokenStorageService: TokenStorageService,
+    private router: Router) { }
 
-   data: any;
-   id: any;
-   username: any;
-   email: any;
-   token: any;
-   roles: any;
+  private _userId: any;
+  private _username: any;
+  private _email: any;
+  private _roles: any;
 
   ngOnInit(): void {
-    this.data = this.tokenStorageService.getUser();
-    this.id = this.data.id;
-    this.username = this.data.username;
-    this.email = this.data.email;
-    this.token = this.data.token;
-    this.roles = this.data.roles;
+    if (this.tokenStorageService.isUserLoggedIn()) {
+      const userData = this.tokenStorageService.getUser();
+      this._userId = userData.id;
+      this._username = userData.username;
+      this._email = userData.email;
+      this._roles = userData.roles;
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
-  readData() {
-    return JSON.stringify(this.data);
-  }
+  public get userId(): number { return this._userId; }
+  public get username(): string { return this._username; }
+  public get email(): string { return this._email; }
+  public get roles(): [] { return this._roles; }
 }

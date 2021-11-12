@@ -10,13 +10,13 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <!-- PROFILE -->
-                <a class="nav-link" href="/profile">Profile</a>
+                <a *ngIf="isUserLoggedIn()" [routerLink]="['/profile']" class="nav-link">Profile</a>
                 <!-- LOGIN -->
-                <a class="nav-link" href="/login">Log In</a>
+                <a *ngIf="!isUserLoggedIn()" [routerLink]="['/login']" class="nav-link">Log In</a>
                 <!-- LOGOUT -->
-                <a class="nav-link" href="/logout">Log Out</a>
+                <a *ngIf="isUserLoggedIn()" (click)="logOut()" class="nav-link">Log Out</a>
                 <!-- REGISTER -->
-                <a class="nav-link" href="/register">Register</a>
+                <a *ngIf="!isUserLoggedIn()" [routerLink]="['/register']" class="nav-link">Register</a>
             </div>
         </div>
     </div>

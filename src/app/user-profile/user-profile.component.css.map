@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kBAAkB,CAAC;EACf,SAAS,EAAE,KAAK;CAAG",
+    "sources": [
+        "user-profile.component.sass"
+    ],
+    "names": [],
+    "file": "user-profile.component.css"
+}

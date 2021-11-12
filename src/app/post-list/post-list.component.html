@@ -7,7 +7,7 @@
                     <span>{{ post.authorFirstName}}</span>
                     <span class="ms-1">{{ post.authorLastName }}</span>
                 </span>
-                <span><i class="bi bi-dot"></i></span>
+                <span><em class="bi bi-dot"></em></span>
                 <span class="fw-light text-secondary">@{{ post.authorUsername }}</span>
             </div>
         </div>
@@ -41,7 +41,7 @@
             <!-- COMMENTS -->
             <div class="col">
                 <div class="text-secondary">
-                    <i class="bi bi-chat"></i>
+                    <em class="bi bi-chat"></em>
                     <span *ngIf="post.numberOfComments>0" class="ms-1 fw-light small">{{ formatNumber(post.numberOfComments) }}</span>
                 </div>
             </div>
@@ -49,7 +49,7 @@
             <!-- LIKES -->
             <div class="col">
                 <div class="text-secondary">
-                    <i class="bi bi-heart"></i>
+                    <em class="bi bi-heart"></em>
                     <span *ngIf="post.numberOfLikes>0" class="ms-1 fw-light small">{{ formatNumber(post.numberOfLikes) }}</span>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             <!-- SHARES -->
             <div class="col">
                 <div class="text-secondary">
-                    <i class="bi bi-share"></i>
+                    <em class="bi bi-share"></em>
                     <span *ngIf="post.numberOfShares>0" class="ms-1 fw-light small">{{ formatNumber(post.numberOfShares) }}</span>
                 </div>
             </div>
