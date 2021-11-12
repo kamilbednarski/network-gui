@@ -12,29 +12,27 @@ import { PostResponseObject } from './postResponseObject';
 })
 export class PostService {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
-  fetchPostAll(): Observable<PostResponseObject[]> {
+  public fetchPostAll(): Observable<PostResponseObject[]> {
     return this.http
       .get<PostResponseObject[]>(environment.apiUrl + '/api/post/get/all/sort/date');
   }
 
-  fetchPostById(id: number): Observable<PostResponseObject> {
+  public fetchPostById(id: number): Observable<PostResponseObject> {
     return this.http
       .get<PostResponseObject>(environment.apiUrl + `/api/post/get/id/${id}`);
   }
 
-  displayPostCreationDateForToday(post: PostResponseObject): string {
+  public displayPostCreationDateForToday(post: PostResponseObject): string {
     return Utils.displayObjectCreationDateForToday(post);
   }
 
-  displayPostCreationDateForYesterday(post: PostResponseObject): string {
+  public displayPostCreationDateForYesterday(post: PostResponseObject): string {
     return Utils.displayObjectCreationDateForYesterday(post);
   }
 
-  formatNumber(number: number): string | number {
+  public formatNumber(number: number): string | number {
     return Utils.formatNumber(number);
   }
 }

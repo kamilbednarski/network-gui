@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
 import { TokenStorageService } from '../token-storage.service';
 
 @Component({
@@ -8,13 +9,15 @@ import { TokenStorageService } from '../token-storage.service';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(
+    private loginService: LoginService,
+    private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
   }
 
   public logOut(): void {
-    this.tokenStorageService.signOut();
+    this.loginService.logOut();
   }
 
   public isUserLoggedIn(): boolean {
