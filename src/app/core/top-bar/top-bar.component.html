@@ -3,20 +3,20 @@
         <!-- BRANDING -->
         <a class="navbar-brand fw-bold text-success" href="/">network</a>
         <!-- TOGGLER BUTTON -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        <button id="navbar-toggler-button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <!-- PROFILE -->
-                <a *ngIf="isUserLoggedIn()" [routerLink]="['/profile']" class="nav-link">Profile</a>
+                <a *ngIf="isUserLoggedIn()" [routerLink]="['/profile']" (click)="toggleNavbarButton()" class="nav-link">Profile</a>
                 <!-- LOGIN -->
-                <a *ngIf="!isUserLoggedIn()" [routerLink]="['/login']" class="nav-link">Log In</a>
+                <a *ngIf="!isUserLoggedIn()" [routerLink]="['/login']" (click)="toggleNavbarButton()" class="nav-link">Log In</a>
                 <!-- LOGOUT -->
                 <a *ngIf="isUserLoggedIn()" (click)="logOut()" class="nav-link">Log Out</a>
                 <!-- REGISTER -->
-                <a *ngIf="!isUserLoggedIn()" [routerLink]="['/register']" class="nav-link">Register</a>
+                <a *ngIf="!isUserLoggedIn()" [routerLink]="['/register']" (click)="toggleNavbarButton()" class="nav-link">Register</a>
             </div>
         </div>
     </div>

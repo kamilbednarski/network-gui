@@ -23,4 +23,8 @@ export class TopBarComponent implements OnInit {
   public isUserLoggedIn(): boolean {
     return this.tokenStorageService.isUserLoggedIn();
   }
+
+  public toggleNavbarButton(): void {
+    document.getElementById('navbar-toggler-button')?.click();
+  }
 }
