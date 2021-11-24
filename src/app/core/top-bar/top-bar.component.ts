@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
-import { TokenStorageService } from '../token-storage.service';
+import { LoginService } from '../../services/authentication/login.service';
+import { TokenStorageService } from '../../services/authentication/token-storage.service';
 
 @Component({
   selector: 'app-top-bar',

@@ -1,10 +1,10 @@
-import { environment } from '../environments/environment';
+import { environment } from '../../../environments/environment';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { UserRegistrationRequest } from './userRegistrationRequest';
+import { UserRegistrationRequest } from '../../models/UserRegistrationRequest';
 
 @Injectable({
   providedIn: 'root'

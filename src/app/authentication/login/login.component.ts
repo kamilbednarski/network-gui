@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubSink } from 'subsink';
-import { LoginService } from '../login.service';
-import { TokenStorageService } from '../token-storage.service';
+import { LoginService } from '../../services/authentication/login.service';
+import { TokenStorageService } from '../../services/authentication/token-storage.service';
 import { Router } from '@angular/router';
 
 @Component({

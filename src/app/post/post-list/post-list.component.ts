@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PostService } from '../post.service';
-import { PostResponseObject } from '../postResponseObject';
+import { PostService } from '../../services/post/post.service';
+import { Post } from '../../models/Post';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -12,7 +12,7 @@ import { SubSink } from 'subsink';
 export class PostListComponent implements OnInit {
 
   private subscriptions = new SubSink();
-  posts: PostResponseObject[] = [];
+  posts: Post[] = [];
 
   constructor(
     private postService: PostService
@@ -34,11 +34,11 @@ export class PostListComponent implements OnInit {
           error => console.log('HTTP Error', error)));
   }
 
-  displayPostCreationDateForToday(post: PostResponseObject): string {
+  displayPostCreationDateForToday(post: Post): string {
     return this.postService.displayPostCreationDateForYesterday(post);
   }
 
-  displayPostCreationDateForYesterday(post: PostResponseObject): string {
+  displayPostCreationDateForYesterday(post: Post): string {
     return this.postService.displayPostCreationDateForYesterday(post);
   }
 

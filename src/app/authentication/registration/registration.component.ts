@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubSink } from 'subsink';
-import { RegistrationService } from '../registration.service';
+import { RegistrationService } from '../../services/authentication/registration.service';
 
 @Component({
   selector: 'app-registration',

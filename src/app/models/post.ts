@@ -1,4 +1,4 @@
-export interface PostResponseObject {
+export interface Post {
     postId: number;
     content: string;
     numberOfLikes: number;
