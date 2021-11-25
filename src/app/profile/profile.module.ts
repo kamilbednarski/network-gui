@@ -1,12 +1,25 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    UserProfileComponent
+  ],
   imports: [
-    CommonModule
+    SharedModule
+  ],
+  exports: [
+    UserProfileComponent
   ]
 })
-export class ProfileModule { }
+export class ProfileModule {
+  static forRoot(): ModuleWithProviders<ProfileModule> {
+    return {
+      ngModule: ProfileModule,
+      providers: []
+    }
+  }
+}

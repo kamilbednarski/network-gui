@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './authentication/login/login.component';
-import { PostDetailsComponent } from './post/post-details/post-details.component';
-import { PostListComponent } from './post/post-list/post-list.component';
-import { RegistrationComponent } from './authentication/registration/registration.component';
-import { UserProfileComponent } from './profile/user-profile/user-profile.component';
+import { LoginComponent } from './authentication/components/login/login.component';
+import { PostDetailsComponent } from './post/components/post-details/post-details.component';
+import { RegistrationComponent } from './authentication/components/registration/registration.component';
+import { UserProfileComponent } from './profile/components/user-profile/user-profile.component';
+import { PostListComponent } from './post/components/post-list/post-list.component';
 
-const routes: Routes = [
+const ROUTES: Routes = [
   { path: '', component: PostListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
@@ -15,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
