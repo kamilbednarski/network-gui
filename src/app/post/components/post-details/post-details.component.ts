@@ -20,8 +20,7 @@ export class PostDetailsComponent implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly postService: PostService
-  ) { }
+    private readonly postService: PostService) { }
 
   ngOnInit(): void {
     // Get the post id from the current route.

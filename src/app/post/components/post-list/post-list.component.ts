@@ -14,8 +14,7 @@ export class PostListComponent implements OnInit {
   private subscriptions = new SubSink();
   posts: Post[] = [];
 
-  constructor(
-    private readonly postService: PostService) { }
+  constructor(private readonly postService: PostService) { }
 
   ngOnInit(): void {
     this.loadAllPost();

@@ -9,9 +9,7 @@ import { CommentService } from '../../services/comment.service';
 export class CommentAddComponent implements OnInit {
   @Input() uniquePostId: any;
 
-  constructor(
-    private readonly commentService: CommentService
-  ) { }
+  constructor(private readonly commentService: CommentService) { }
 
   ngOnInit(): void {
   }
