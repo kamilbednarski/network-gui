@@ -5,13 +5,15 @@ import { SharedModule } from '../shared/shared.module';
 import { LoginService } from './services/login.service';
 import { RegistrationService } from './services/registration.service';
 import { TokenStorageService } from './services/token-storage.service';
+import { AuthFormLogoComponent } from './components/auth-form-logo/auth-form-logo.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AuthFormLogoComponent
   ],
   imports: [
     SharedModule

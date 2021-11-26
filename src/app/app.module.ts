@@ -21,11 +21,11 @@ import { PostModule } from './post/post.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AuthenticationModule.forRoot(),
-    CommentModule.forRoot(),
-    PostModule.forRoot(),
-    ProfileModule.forRoot(),
-    SharedModule.forRoot()
+    AuthenticationModule,
+    CommentModule,
+    PostModule,
+    ProfileModule,
+    SharedModule
   ],
   bootstrap: [AppComponent]
 })
