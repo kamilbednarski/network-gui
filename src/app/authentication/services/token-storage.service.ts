@@ -14,35 +14,35 @@ export class TokenStorageService {
     window.sessionStorage.clear();
   }
 
-  public saveToken(token: string): void {
+  public saveAuthToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
-  public getToken(): string | null {
+  public readToken(): string | null {
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user: any): void {
+  public saveAuthPrincipal(authPrincipal: any): void {
     window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(authPrincipal));
   }
 
-  public getUser(): any {
-    const user = this.readUser();
-    if (user) {
-      return JSON.parse(user);
+  public readAuthPrincipalIfPresent(): any {
+    const authPrincipal = this.readAuthPrincipal();
+    if (authPrincipal) {
+      return JSON.parse(authPrincipal);
     }
     return {};
   }
 
-  private readUser(): any {
+  private readAuthPrincipal(): string | null {
     return window.sessionStorage.getItem(USER_KEY);
   }
 
-  public isUserLoggedIn(): boolean {
-    const user = this.readUser();
-    if (user) {
+  public isUserAuthenticated(): boolean {
+    const authPrincipal = this.readAuthPrincipal();
+    if (authPrincipal) {
       return true;
     }
     return false;

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { CommentModule } from './comment/comment.module';
 import { SharedModule } from './shared/shared.module';
 import { ProfileModule } from './profile/profile.module';
 import { PostModule } from './post/post.module';
+import { JwtTokenInterceptor } from './shared/jwt-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,9 @@ import { PostModule } from './post/post.module';
     PostModule,
     ProfileModule,
     SharedModule
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

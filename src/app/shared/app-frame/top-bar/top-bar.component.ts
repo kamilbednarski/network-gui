@@ -21,7 +21,7 @@ export class TopBarComponent implements OnInit {
   }
 
   public isUserLoggedIn(): boolean {
-    return this.tokenStorageService.isUserLoggedIn();
+    return this.tokenStorageService.isUserAuthenticated();
   }
 
   public toggleNavbarButton(): void {

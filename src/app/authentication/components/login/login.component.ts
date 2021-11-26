@@ -32,9 +32,13 @@ export class LoginComponent implements OnInit {
         password: ['', [Validators.required]],
       }
     );
-    if (this.tokenStorageService.getToken()) {
+    this.checkIfUserAuthenticated();
+  }
+
+  private checkIfUserAuthenticated(): void {
+    if (this.tokenStorageService.readToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorageService.getUser().roles;
+      this.roles = this.tokenStorageService.readAuthPrincipalIfPresent().roles;
     }
   }
 
@@ -43,16 +47,16 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(loginForm: FormGroup): void {
-    let username: string = loginForm.get('username')?.value;
-    let password: string = loginForm.get('password')?.value;
+    let username: string = this.username?.value;
+    let password: string = this.password?.value;
     this.subscriptions.add(
       this.loginService
         .login(username, password)
         .subscribe(
           response => {
-            this.tokenStorageService.saveToken(response.token);
-            this.tokenStorageService.saveUser(response);
-            this.roles = this.tokenStorageService.getUser().roles;
+            this.tokenStorageService.saveAuthToken(response.token);
+            this.tokenStorageService.saveAuthPrincipal(response);
+            this.roles = this.tokenStorageService.readAuthPrincipalIfPresent().roles;
             this.isLoginFailed = false;
             this.isLoggedIn = true;
             this.redirectToProfilePage(); // TODO: change to personalized feed
