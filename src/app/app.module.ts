@@ -11,7 +11,7 @@ import { CommentModule } from './comment/comment.module';
 import { SharedModule } from './shared/shared.module';
 import { ProfileModule } from './profile/profile.module';
 import { PostModule } from './post/post.module';
-import { JwtTokenInterceptor } from './shared/jwt-token.interceptor';
+import { JwtTokenInterceptor } from './shared/interceptor/jwt-token.interceptor';
 
 @NgModule({
   declarations: [

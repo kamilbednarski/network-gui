@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/authentication/models/user.model';
 import { TokenStorageService } from 'src/app/authentication/services/token-storage.service';
 import { SubSink } from 'subsink';
+import { UserDetails } from '../../models/user-details.model';
 import { UserDetailsService } from '../../services/user-details.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   private _email: string | undefined;
   private _roles: string[] | undefined;
   private subscriptions: SubSink = new SubSink();
-  loggedUserDetails: User | undefined;
+  loggedUserDetails: UserDetails | undefined;
 
   ngOnInit(): void {
     if (this.tokenStorageService.isUserAuthenticated()) {

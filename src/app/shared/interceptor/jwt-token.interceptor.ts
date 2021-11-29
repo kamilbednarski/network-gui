@@ -6,7 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenStorageService } from '../authentication/services/token-storage.service';
+import { TokenStorageService } from '../../authentication/services/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
