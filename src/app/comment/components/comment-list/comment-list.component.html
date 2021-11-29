@@ -7,7 +7,7 @@
                     <span>{{ comment.authorFirstName }}</span>
                     <span class="ms-1">{{ comment.authorLastName }}</span>
                 </span>
-                <span><i class="bi bi-dot"></i></span>
+                <span><em class="bi bi-dot"></em></span>
                 <span class="fw-light text-secondary">@{{ comment.authorUsername }}</span>
             </div>
         </div>
@@ -39,14 +39,14 @@
         <div class="row">
             <!-- LIKE BUTTON -->
             <div class="col text-center">
-                <i class="bi bi-heart"></i>
+                <em class="bi bi-heart"></em>
                 <span *ngIf="comment.numberOfLikes>0" class="ms-1 fw-light small">{{
                     formatNumber(comment.numberOfLikes) }}</span>
             </div>
 
             <!-- RESPOND BUTTON -->
             <div class="col text-center">
-                <i class="bi bi-chat"></i>
+                <em class="bi bi-chat"></em>
             </div>
         </div>
     </div>

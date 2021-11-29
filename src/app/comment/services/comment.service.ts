@@ -14,9 +14,8 @@ export class CommentService {
   constructor(private readonly http: HttpClient) { }
 
   addComment(content: string, postId: number) {
-    console.log(content);
-    console.log(postId);
-    //TODO: implement create new comment for given Post
+    return this.http
+      .post(`${environment.apiUrl}/api/comment/post/new/${postId}`, content);
   }
 
   deleteCommentById(id: number) {
@@ -44,6 +43,6 @@ export class CommentService {
   }
 
   formatNumber(number: number): string | number {
-     return NumberFormatter.formatNumber(number);
+    return NumberFormatter.formatNumber(number);
   }
 }

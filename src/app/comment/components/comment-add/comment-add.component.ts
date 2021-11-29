@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { SubSink } from 'subsink';
 import { CommentService } from '../../services/comment.service';
 
 @Component({
@@ -6,16 +8,35 @@ import { CommentService } from '../../services/comment.service';
   templateUrl: './comment-add.component.html',
   styleUrls: ['./comment-add.component.sass']
 })
-export class CommentAddComponent implements OnInit {
+export class CommentAddComponent implements OnInit, OnDestroy {
+  private subscriptions: SubSink = new SubSink();
   @Input() uniquePostId: any;
 
-  constructor(private readonly commentService: CommentService) { }
+  constructor(
+    private readonly commentService: CommentService,
+    private readonly router: Router) { }
 
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  private reloadComponent() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([this.router.url]);
+  }
+
   addComment(content: string, postId: number) {
-    this.commentService.addComment(content, postId);
+    this.subscriptions.add(
+      this.commentService.addComment(content, postId)
+        .subscribe(
+          response => this.reloadComponent(),
+          error => console.log(error)
+        )
+    );
   }
 
   deleteComment(commentId: number) {
