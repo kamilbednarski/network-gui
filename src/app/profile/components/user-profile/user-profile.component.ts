@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/authentication/services/token-storage.service';
 import { SubSink } from 'subsink';
-import { UserDetails } from '../../models/user-details.model';
+import { UserPrivateDetails } from '../../models/user-private-details.model';
 import { UserDetailsService } from '../../services/user-details.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   private _email: string | undefined;
   private _roles: string[] | undefined;
   private subscriptions: SubSink = new SubSink();
-  loggedUserDetails: UserDetails | undefined;
+  loggedUserDetails: UserPrivateDetails | undefined;
 
   ngOnInit(): void {
     if (this.tokenStorageService.isUserAuthenticated()) {
@@ -30,7 +30,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       this._userId = authPrincipal.id;
       this._username = authPrincipal.username;
       this._email = authPrincipal.email;
-      this._roles = authPrincipal.roles;
       this.readLoggedUserDetails();
     } else {
       this.router.navigate(['/login']);
