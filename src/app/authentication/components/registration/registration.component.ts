@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SubSink } from 'subsink';
 import { RegistrationService } from '../../services/registration.service';
 
@@ -15,7 +16,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private readonly registrationService: RegistrationService,
-    private readonly formBuilder: FormBuilder) { }
+    private readonly formBuilder: FormBuilder,
+    private readonly router: Router) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group(
@@ -108,7 +110,7 @@ export class RegistrationComponent implements OnInit {
           "password": password
         })
         .subscribe(
-          response => console.log(response),
+          response => this.router.navigate(['/register/confirm']),
           error => console.error(error)));
   }
 

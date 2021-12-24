@@ -5,13 +5,15 @@ import { PostDetailsComponent } from './post/components/post-details/post-detail
 import { RegistrationComponent } from './authentication/components/registration/registration.component';
 import { UserProfileComponent } from './profile/components/user-profile/user-profile.component';
 import { PostListComponent } from './post/components/post-list/post-list.component';
+import { RegistrationToConfirmComponent } from './authentication/components/registration-to-confirm/registration-to-confirm.component';
 
 const ROUTES: Routes = [
   { path: '', component: PostListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'post/:postId', component: PostDetailsComponent },
-  { path: 'profile', component: UserProfileComponent }
+  { path: 'profile', component: UserProfileComponent },
+  { path: 'register/confirm', component: RegistrationToConfirmComponent }
 ];
 
 @NgModule({

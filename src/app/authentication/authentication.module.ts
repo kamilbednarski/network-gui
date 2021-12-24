@@ -6,6 +6,7 @@ import { LoginService } from './services/login.service';
 import { RegistrationService } from './services/registration.service';
 import { TokenStorageService } from './services/token-storage.service';
 import { AuthFormLogoComponent } from './components/auth-form-logo/auth-form-logo.component';
+import { RegistrationToConfirmComponent } from './components/registration-to-confirm/registration-to-confirm.component';
 
 
 
@@ -13,14 +14,16 @@ import { AuthFormLogoComponent } from './components/auth-form-logo/auth-form-log
   declarations: [
     LoginComponent,
     RegistrationComponent,
-    AuthFormLogoComponent
+    AuthFormLogoComponent,
+    RegistrationToConfirmComponent
   ],
   imports: [
     SharedModule
   ],
   exports: [
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RegistrationToConfirmComponent
   ]
 })
 export class AuthenticationModule {
