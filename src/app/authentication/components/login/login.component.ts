@@ -53,23 +53,34 @@ export class LoginComponent implements OnInit {
       this.loginService
         .login(username, password)
         .subscribe(
-          response => {
-            this.tokenStorageService.saveAuthToken(response.token);
-            this.tokenStorageService.saveAuthPrincipal(response);
-            this.roles = this.tokenStorageService.readAuthPrincipalIfPresent().roles;
-            this.isLoginFailed = false;
-            this.isLoggedIn = true;
-            this.redirectToProfilePage(); // TODO: change to personalized feed
-          },
-          error => {
-            this.errorMessage = error.error.message;
-            this.isLoginFailed = true;
-          }
+          response => this.saveAuthDataAndRedirectToUserPage(response),
+          error => this.handleLoginError(error)
         )
     );
   }
 
-  redirectToProfilePage(): void {
+  private saveAuthDataAndRedirectToUserPage(response: any): void {
+    this.tokenStorageService.saveAuthToken(response.token);
+    this.tokenStorageService.saveAuthPrincipal(response);
+    this.roles = this.tokenStorageService.readAuthPrincipalIfPresent().roles;
+    this.isLoginFailed = false;
+    this.isLoggedIn = true;
+    this.redirectToProfilePage();
+  }
+
+  private handleLoginError(error: any): void {
+    this.errorMessage = error.error.message;
+    this.isLoginFailed = true;
+    if (this.isAccountRegistrationNotConfirmed()) {
+      this.router.navigate(['/register/unconfirmed']);
+    }
+  }
+
+  private isAccountRegistrationNotConfirmed() {
+    return this.errorMessage === "User registration for given account was not confirmed.";
+  }
+
+  private redirectToProfilePage(): void {
     this.router.navigate(['/profile']);
   }
 

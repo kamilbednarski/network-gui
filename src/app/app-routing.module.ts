@@ -6,6 +6,7 @@ import { RegistrationComponent } from './authentication/components/registration/
 import { UserProfileComponent } from './profile/components/user-profile/user-profile.component';
 import { PostListComponent } from './post/components/post-list/post-list.component';
 import { RegistrationToConfirmComponent } from './authentication/components/registration-to-confirm/registration-to-confirm.component';
+import { RegistrationNotConfirmedComponent } from './authentication/components/registration-not-confirmed/registration-not-confirmed.component';
 
 const ROUTES: Routes = [
   { path: '', component: PostListComponent },
@@ -13,7 +14,8 @@ const ROUTES: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'post/:postId', component: PostDetailsComponent },
   { path: 'profile', component: UserProfileComponent },
-  { path: 'register/confirm', component: RegistrationToConfirmComponent }
+  { path: 'register/confirm', component: RegistrationToConfirmComponent },
+  { path: 'register/unconfirmed', component: RegistrationNotConfirmedComponent }
 ];
 
 @NgModule({
