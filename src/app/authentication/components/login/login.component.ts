@@ -46,9 +46,9 @@ export class LoginComponent implements OnInit {
     this.subscriptions.unsubscribe();
   }
 
-  loginUser(loginForm: FormGroup): void {
-    let username: string = this.username?.value;
-    let password: string = this.password?.value;
+  loginUser(): void {
+    const username: string = this.username?.value;
+    const password: string = this.password?.value;
     this.subscriptions.add(
       this.loginService
         .login(username, password)
@@ -73,7 +73,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/profile']);
   }
 
-  // TODO: is it needed?
   get username() { return this.loginForm.get('username'); }
   get password() { return this.loginForm.get('password'); }
 }

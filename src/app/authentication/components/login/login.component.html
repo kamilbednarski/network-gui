@@ -7,7 +7,7 @@
 </div>
 <div class="container">
     <div class="container login-container shadow mb-3 pt-3 pb-4 bg-body rounded">
-        <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
             <!-- USERNAME INPUT -->
             <div class="mb-2">
                 <input formControlName="username" type="username" class="form-control border rounded-pill fw-light"
