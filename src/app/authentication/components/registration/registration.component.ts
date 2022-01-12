@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { SubSink } from 'subsink';
-import { RegistrationService } from '../../services/registration.service';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { SubSink } from "subsink";
+import { RegistrationService } from "../../services/registration.service";
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.sass']
+  selector: "app-registration",
+  templateUrl: "./registration.component.html",
+  styleUrls: ["./registration.component.sass"]
 })
 export class RegistrationComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class RegistrationComponent implements OnInit {
       {
         firstName:
           [
-            '',
+            "",
             [
               Validators.required,
               Validators.minLength(2),
@@ -33,7 +33,7 @@ export class RegistrationComponent implements OnInit {
           ],
         lastName:
           [
-            '',
+            "",
             [
               Validators.required,
               Validators.minLength(2),
@@ -42,7 +42,7 @@ export class RegistrationComponent implements OnInit {
           ],
         email:
           [
-            '',
+            "",
             [
               Validators.required,
               Validators.minLength(7),
@@ -51,7 +51,7 @@ export class RegistrationComponent implements OnInit {
           ],
         username:
           [
-            '',
+            "",
             [
               Validators.required,
               Validators.minLength(3),
@@ -60,7 +60,7 @@ export class RegistrationComponent implements OnInit {
           ],
         password:
           [
-            '',
+            "",
             [
               Validators.required,
               Validators.minLength(12),
@@ -69,7 +69,7 @@ export class RegistrationComponent implements OnInit {
           ],
         passwordConfirmation:
           [
-            '',
+            "",
             [
               Validators.required,
               Validators.minLength(12),
@@ -85,69 +85,35 @@ export class RegistrationComponent implements OnInit {
   }
 
   registerUser(registrationForm: FormGroup): void {
-    let firstName: string = registrationForm.get('firstName')?.value;
-    let lastName: string = registrationForm.get('lastName')?.value;
-    let email: string = registrationForm.get('email')?.value;
-    let username: string = registrationForm.get('username')?.value;
-    let password: string = registrationForm.get('password')?.value;
-    let passwordConfirmation: string = registrationForm.get('passwordConfirmation')?.value;
-
-    //TODO: implement form validation
-    console.log(firstName);
-    console.log(lastName);
-    this.isEmailFormatValid(email);
-    this.isUsernameValid(username);
-    this.isPasswordFormatValid(password);
-    console.log(passwordConfirmation);
+    let firstName: string = registrationForm.get("firstName")?.value;
+    let lastName: string = registrationForm.get("lastName")?.value;
+    let email: string = registrationForm.get("email")?.value;
+    let username: string = registrationForm.get("username")?.value;
+    let password: string = registrationForm.get("password")?.value;
+    let passwordConfirmation: string = registrationForm.get("passwordConfirmation")?.value;
 
     this.subscriptions.add(
-      this.registrationService.registerUser(
-        {
-          "firstName": firstName,
-          "lastName": lastName,
-          "email": email,
-          "username": username,
-          "password": password
-        })
-        .subscribe(
-          response => this.router.navigate(['/register/confirm']),
-          error => console.error(error)));
+      this.registrationService.registerUser({
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "username": username,
+        "password": password,
+        "passwordConfirmation": passwordConfirmation
+      }).subscribe(response => {
+        console.log(response);
+        //TODO: implement reaction to errors during server side validation
+        if (response.status === 201) {
+          this.router.navigate(["/register/confirm"]);
+        }
+      })
+    );
   }
 
-  isUsernameValid(username: string) {
-    let isValid: boolean = false;
-    this.subscriptions.add(
-      this.registrationService
-        .isUsernameValid(username)
-        .subscribe(
-          response => console.log(response),
-          error => console.log(error)));
-  }
-
-  isEmailFormatValid(email: string) {
-    let isValid: boolean = false;
-    this.subscriptions.add(
-      this.registrationService
-        .isEmailFormatValid(email)
-        .subscribe(
-          response => console.log(response),
-          error => console.log(error)));
-  }
-
-  isPasswordFormatValid(password: string) {
-    let isValid: boolean = false;
-    this.subscriptions.add(
-      this.registrationService
-        .isPasswordFormatValid(password)
-        .subscribe(
-          response => console.log(response),
-          error => console.log(error)));
-  }
-
-  get firstName() { return this.registrationForm.get('firstName'); }
-  get lastName() { return this.registrationForm.get('lastName'); }
-  get email() { return this.registrationForm.get('email'); }
-  get username() { return this.registrationForm.get('username'); }
-  get password() { return this.registrationForm.get('password'); }
-  get passwordConfirmation() { return this.registrationForm.get('passwordConfirmation'); }
+  get firstNameInput() { return this.registrationForm.get("firstName"); }
+  get lastNameInput() { return this.registrationForm.get("lastName"); }
+  get emailInput() { return this.registrationForm.get("email"); }
+  get usernameInput() { return this.registrationForm.get("username"); }
+  get passwordInput() { return this.registrationForm.get("password"); }
+  get passwordConfirmationInput() { return this.registrationForm.get("passwordConfirmation"); }
 }

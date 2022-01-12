@@ -9,14 +9,14 @@
             <div class="mb-2">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="firstName?.errors?.required && firstName?.touched"
+                    <small *ngIf="firstNameInput?.errors?.required && firstNameInput?.touched"
                         class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your name.
                     </small>
-                    <small *ngIf="firstName?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="firstNameInput?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Minimum name length is 2.
                     </small>
-                    <small *ngIf="firstName?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="firstNameInput?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Maximum name length is 50.
                     </small>
                 </div>
@@ -28,14 +28,14 @@
             <div class="mb-4">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="lastName?.errors?.required && lastName?.touched"
+                    <small *ngIf="lastNameInput?.errors?.required && lastNameInput?.touched"
                         class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your last name.
                     </small>
-                    <small *ngIf="lastName?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="lastNameInput?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Minimum last name length is 2.
                     </small>
-                    <small *ngIf="lastName?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="lastNameInput?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Maximum last name length is 50.
                     </small>
                 </div>
@@ -47,14 +47,14 @@
             <div class="mb-2">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="email?.errors?.required && email?.touched"
+                    <small *ngIf="emailInput?.errors?.required && emailInput?.touched"
                         class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your e-mail address.
                     </small>
-                    <small *ngIf="email?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="emailInput?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Minimum email length is 7.
                     </small>
-                    <small *ngIf="email?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="emailInput?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Maximum email length is 255.
                     </small>
                 </div>
@@ -66,14 +66,14 @@
             <div class="mb-4">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="username?.errors?.required && username?.touched"
+                    <small *ngIf="usernameInput?.errors?.required && usernameInput?.touched"
                         class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your username.
                     </small>
-                    <small *ngIf="username?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="usernameInput?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Minimum username length is 3.
                     </small>
-                    <small *ngIf="username?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="usernameInput?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Maximum username length is 30.
                     </small>
                 </div>
@@ -85,20 +85,20 @@
             <div class="mb-2">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="password?.touched && passwordConfirmation?.touched
-                        && password?.value.length>0 && passwordConfirmation?.value.length>0
-                        && password?.value!=passwordConfirmation?.value"
+                    <small *ngIf="passwordInput?.touched && passwordConfirmationInput?.touched
+                        && passwordInput?.value.length>0 && passwordConfirmationInput?.value.length>0
+                        && passwordInput?.value!=passwordConfirmationInput?.value"
                         class="text-danger shadow rounded-pill px-2 py-1">
                         Password inputs must match.
                     </small>
-                    <small *ngIf="password?.errors?.required && password?.touched"
+                    <small *ngIf="passwordInput?.errors?.required && passwordInput?.touched"
                         class="text-danger shadow rounded-pill px-2 py-1">
                         Please type your password.
                     </small>
-                    <small *ngIf="password?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="passwordInput?.errors?.minlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Minimum password length is 12.
                     </small>
-                    <small *ngIf="password?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="passwordInput?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Maximum password length is 128.
                     </small>
                 </div>
@@ -111,15 +111,15 @@
             <div class="mb-3">
                 <!-- VALIDATORS -->
                 <div class="text-center">
-                    <small *ngIf="passwordConfirmation?.errors?.required && passwordConfirmation?.touched"
+                    <small *ngIf="passwordConfirmationInput?.errors?.required && passwordConfirmationInput?.touched"
                         class="text-danger shadow rounded-pill px-2 py-1">
                         Please confirm your password.
                     </small>
-                    <small *ngIf="passwordConfirmation?.errors?.minlength"
+                    <small *ngIf="passwordConfirmationInput?.errors?.minlength"
                         class="text-danger shadow rounded-pill px-2 py-1">
                         Minimum password length is 12.
                     </small>
-                    <small *ngIf="passwordConfirmation?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
+                    <small *ngIf="passwordConfirmationInput?.errors?.maxlength" class="text-danger shadow rounded-pill px-2 py-1">
                         Maximum password length is 128.
                     </small>
                 </div>

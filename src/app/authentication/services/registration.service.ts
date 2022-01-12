@@ -13,9 +13,9 @@ export class RegistrationService {
 
   constructor(private readonly http: HttpClient) { }
 
-  registerUser(request: UserRegistrationRequest): Observable<Object> {
+  registerUser(request: UserRegistrationRequest): Observable<any> {
     return this.http
-      .post<Object>(environment.apiUrl + '/api/registration', request);
+      .post<Object>(environment.apiUrl + '/api/registration', request, {observe: 'response'});
   }
 
   isRegistrationFormValid(registrationForm: FormGroup): boolean {
