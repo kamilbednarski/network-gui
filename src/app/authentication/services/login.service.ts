@@ -19,7 +19,7 @@ export class LoginService {
     private readonly router: Router,
     private readonly tokenStorageService: TokenStorageService) { }
 
-  public login(username: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<any> {
     return this.http.post(
       environment.apiUrl + LOGIN_PATH,
       { username, password },
@@ -27,7 +27,7 @@ export class LoginService {
     );
   }
 
-  public logOut(): void {
+  logOut(): void {
     this.tokenStorageService.signOut();
     this.router.navigate(['/login']);
   }

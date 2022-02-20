@@ -77,7 +77,8 @@ export class LoginComponent implements OnInit {
   }
 
   private isAccountRegistrationNotConfirmed() {
-    return this.errorMessage === "User registration for given account was not confirmed.";
+    return this.errorMessage ===
+      "User registration for given account was not confirmed.";
   }
 
   private redirectToProfilePage(): void {

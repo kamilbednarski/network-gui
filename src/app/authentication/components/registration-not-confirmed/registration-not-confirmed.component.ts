@@ -11,5 +11,4 @@ export class RegistrationNotConfirmedComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

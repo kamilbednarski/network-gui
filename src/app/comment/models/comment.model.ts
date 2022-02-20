@@ -1,4 +1,5 @@
 export interface Comment {
+
     commendId: number,
     content: string,
     numberOfLikes: number,

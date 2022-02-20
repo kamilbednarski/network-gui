@@ -16,15 +16,15 @@ export class TopBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public logOut(): void {
+  logOut(): void {
     this.loginService.logOut();
   }
 
-  public isUserLoggedIn(): boolean {
+  isUserLoggedIn(): boolean {
     return this.tokenStorageService.isUserAuthenticated();
   }
 
-  public toggleNavbarButton(): void {
+  toggleNavbarButton(): void {
     document.getElementById('navbar-toggler-button')?.click();
   }
 }

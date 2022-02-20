@@ -11,5 +11,4 @@ export class AuthFormLogoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

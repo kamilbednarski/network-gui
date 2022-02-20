@@ -90,7 +90,8 @@ export class RegistrationComponent implements OnInit {
     let email: string = registrationForm.get("email")?.value;
     let username: string = registrationForm.get("username")?.value;
     let password: string = registrationForm.get("password")?.value;
-    let passwordConfirmation: string = registrationForm.get("passwordConfirmation")?.value;
+    let passwordConfirmation: string =
+    registrationForm.get("passwordConfirmation")?.value;
 
     this.subscriptions.add(
       this.registrationService.registerUser({
@@ -100,13 +101,22 @@ export class RegistrationComponent implements OnInit {
         "username": username,
         "password": password,
         "passwordConfirmation": passwordConfirmation
-      }).subscribe(response => {
-        console.log(response);
-        //TODO: implement reaction to errors during server side validation
-        if (response.status === 201) {
-          this.router.navigate(["/register/confirm"]);
+      }).subscribe(
+        response => {
+          console.log(response);
+          if (response.status === 201) {
+            this.router.navigate(["/register/confirm"]);
+          }
+        },
+        error => {
+          console.log(error);
+          if (error.error.message === "Some obligatory data from registration request is missing.") {
+            console.log("We got 406 here!: Some obligatory data from registration request is missing.");
+          } else if (error.error.message === "Password and its confirmation do not match") {
+            console.log("406 again - Password and its confirmation do not match");
+          }
         }
-      })
+      )
     );
   }
 
@@ -115,5 +125,7 @@ export class RegistrationComponent implements OnInit {
   get emailInput() { return this.registrationForm.get("email"); }
   get usernameInput() { return this.registrationForm.get("username"); }
   get passwordInput() { return this.registrationForm.get("password"); }
-  get passwordConfirmationInput() { return this.registrationForm.get("passwordConfirmation"); }
+  get passwordConfirmationInput() {
+    return this.registrationForm.get("passwordConfirmation");
+  }
 }

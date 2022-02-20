@@ -9,8 +9,9 @@ import { CommentService } from '../../services/comment.service';
   styleUrls: ['./comment-add.component.sass']
 })
 export class CommentAddComponent implements OnInit, OnDestroy {
-  private subscriptions: SubSink = new SubSink();
+
   @Input() uniquePostId: any;
+  private subscriptions: SubSink = new SubSink();
 
   constructor(
     private readonly commentService: CommentService,

@@ -18,25 +18,25 @@ export class PostService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public fetchPostAll(): Observable<Post[]> {
+  fetchPostAll(): Observable<Post[]> {
     return this.http
       .get<Post[]>(environment.apiUrl + POST_ALL_SORT_BY_DATE);
   }
 
-  public fetchPostById(id: number): Observable<Post> {
+  fetchPostById(id: number): Observable<Post> {
     return this.http
       .get<Post>(environment.apiUrl + `${POST_BY_ID_URL}${id}`);
   }
 
-  public displayPostCreationDateForToday(post: Post): string {
+  displayPostCreationDateForToday(post: Post): string {
     return DateFormatter.displayObjectCreationDateForToday(post);
   }
 
-  public displayPostCreationDateForYesterday(post: Post): string {
+  displayPostCreationDateForYesterday(post: Post): string {
     return DateFormatter.displayObjectCreationDateForYesterday(post);
   }
 
-  public formatNumber(number: number): string | number {
+  formatNumber(number: number): string | number {
     return NumberFormatter.formatNumber(number);
   }
 }

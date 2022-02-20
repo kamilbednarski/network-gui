@@ -17,19 +17,20 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     private readonly userDetailsService: UserDetailsService,
     private readonly router: Router) { }
 
-  private _userId: number | undefined;
-  private _username: string | undefined;
-  private _email: string | undefined;
-  private _roles: string[] | undefined;
-  private subscriptions: SubSink = new SubSink();
+  userId: number | undefined;
+  username: string | undefined;
+  email: string | undefined;
+  roles: string[] | undefined;
+  subscriptions: SubSink = new SubSink();
   loggedUserDetails: UserPrivateDetails | undefined;
 
   ngOnInit(): void {
     if (this.tokenStorageService.isUserAuthenticated()) {
-      const authPrincipal = this.tokenStorageService.readAuthPrincipalIfPresent();
-      this._userId = authPrincipal.id;
-      this._username = authPrincipal.username;
-      this._email = authPrincipal.email;
+      const authPrincipal =
+        this.tokenStorageService.readAuthPrincipalIfPresent();
+      this.userId = authPrincipal.id;
+      this.username = authPrincipal.username;
+      this.email = authPrincipal.email;
       this.readLoggedUserDetails();
     } else {
       this.router.navigate(['/login']);
@@ -43,13 +44,8 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   readLoggedUserDetails() {
     this.subscriptions.add(
       this.userDetailsService.readLoggedUserDetails()
-      .subscribe(
-        response => this.loggedUserDetails = response,
-        error => console.log(error)));
+        .subscribe(
+          response => this.loggedUserDetails = response,
+          error => console.log(error)));
   }
-
-  public get userId(): number | undefined { return this._userId; }
-  public get username(): string | undefined { return this._username; }
-  public get email(): string | undefined { return this._email; }
-  public get roles(): string[] | undefined { return this._roles; }
 }

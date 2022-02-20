@@ -19,7 +19,7 @@ export class RegistrationToConfirmComponent implements OnInit {
     }
   }
 
-  public isUserLoggedIn(): boolean {
+  isUserLoggedIn(): boolean {
     return this.tokenStorageService.isUserAuthenticated();
   }
 }
