@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit {
     this.checkIfUserAuthenticated();
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
   private checkIfUserAuthenticated(): void {
     if (this.tokenStorageService.readToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorageService.readAuthPrincipalIfPresent().roles;
     }
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
   }
 
   loginUser(): void {

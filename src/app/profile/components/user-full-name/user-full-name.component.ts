@@ -14,5 +14,4 @@ export class UserFullNameComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
