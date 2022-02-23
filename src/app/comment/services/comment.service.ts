@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { DateFormatter } from 'src/app/shared/utils/date-formatter';
 import { NumberFormatter } from 'src/app/shared/utils/number-formatter';
 import { Comment } from '../../comment/models/comment.model';
+import { HttpHeadersGenerator } from 'src/app/shared/utils/http-headers-generator';
 
 @Injectable()
 export class CommentService {
@@ -14,24 +15,33 @@ export class CommentService {
   constructor(private readonly http: HttpClient) { }
 
   addComment(content: string, postId: number) {
-    return this.http
-      .post(`${environment.apiUrl}/api/comment/post/new/${postId}`, content);
+    return this.http.post(
+      `${environment.apiUrl}/api/comment/post/new/${postId}`,
+      content,
+      { headers: HttpHeadersGenerator.generateHttpHeadersWithAuthRequired() }
+    );
   }
 
   deleteCommentById(id: number) {
-    console.log(id);
-    //TODO: implement delete existing comment
+    return this.http.delete(
+      `${environment.apiUrl}/api/comment/delete/${id}`,
+      { headers: HttpHeadersGenerator.generateHttpHeadersWithAuthRequired() }
+    );
   }
 
-  editComment(commentId: number, content: string) {
-    console.log(commentId);
-    console.log(content);
-    //TODO: implement edit existing comment
+  editComment(id: number, content: string) {
+    return this.http.put(
+      `${environment.apiUrl}/api/comment/post/new/${id}`,
+      content,
+      { headers: HttpHeadersGenerator.generateHttpHeadersWithAuthRequired() }
+    );
   }
 
   fetchCommentAllByPostId(id: number): Observable<Comment[]> {
-    return this.http
-      .get<Comment[]>(environment.apiUrl + `/api/comment/get/all/post/${id}`);
+    return this.http.get<Comment[]>(
+      environment.apiUrl +
+      `/api/comment/get/all/post/${id}`
+    );
   }
 
   displayCommentCreationDateForToday(comment: Comment): string {

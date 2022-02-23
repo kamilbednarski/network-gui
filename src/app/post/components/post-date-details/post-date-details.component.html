@@ -1,0 +1,15 @@
+<div class="row pb-3">
+    <div class="col">
+        <div *ngIf="post.ageOfPostInDays==0" class="fw-light small text-secondary">
+            {{ displayPostCreationDateForToday(post) }}
+        </div>
+
+        <div *ngIf="post.ageOfPostInDays==1" class="fw-light small text-secondary">
+            {{ displayPostCreationDateForYesterday(post) }}
+        </div>
+
+        <div *ngIf="post.ageOfPostInDays>1" class="fw-light small text-secondary">
+            {{ post.dateOfCreation| date:'mediumDate'}} at {{ post.timeOfCreation }}
+        </div>
+    </div>
+</div>

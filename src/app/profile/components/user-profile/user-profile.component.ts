@@ -41,7 +41,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  readLoggedUserDetails() {
+  readLoggedUserDetails(): void {
     this.subscriptions.add(
       this.userDetailsService.readLoggedUserDetails()
         .subscribe(

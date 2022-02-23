@@ -1,7 +1,12 @@
 <div class="container">
     <div class="profile-container shadow my-3 pt-3 pb-4 bg-body rounded">
         <div class="container" *ngIf="loggedUserDetails">
-            {{ loggedUserDetails | json }}
+            <div>
+                {{ loggedUserDetails.firstName }} {{ loggedUserDetails.lastName }}
+            </div>
+            <div>
+                @{{ loggedUserDetails.username }}
+            </div>
         </div>
     </div>
 </div>

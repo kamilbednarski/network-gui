@@ -4,17 +4,21 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { PostService } from './services/post.service';
 import { CommentModule } from '../comment/comment.module';
+import { ProfileModule } from '../profile/profile.module';
+import { PostDateDetailsComponent } from './components/post-date-details/post-date-details.component';
 
 
 
 @NgModule({
   declarations: [
     PostDetailsComponent,
-    PostListComponent
+    PostListComponent,
+    PostDateDetailsComponent
   ],
   imports: [
     SharedModule,
-    CommentModule
+    CommentModule,
+    ProfileModule
   ],
   exports: [
     PostDetailsComponent,
@@ -22,6 +26,7 @@ import { CommentModule } from '../comment/comment.module';
   ]
 })
 export class PostModule {
+
   static forRoot(): ModuleWithProviders<PostModule> {
     return {
       ngModule: PostModule,
