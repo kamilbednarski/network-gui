@@ -30,6 +30,7 @@ import { RegistrationNotConfirmedComponent } from './components/registration-not
   ]
 })
 export class AuthenticationModule {
+
   static forRoot(): ModuleWithProviders<AuthenticationModule> {
     return {
       ngModule: AuthenticationModule,

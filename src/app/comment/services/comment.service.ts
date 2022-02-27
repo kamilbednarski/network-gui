@@ -9,7 +9,9 @@ import { NumberFormatter } from 'src/app/shared/utils/number-formatter';
 import { Comment } from '../../comment/models/comment.model';
 import { HttpHeadersGenerator } from 'src/app/shared/utils/http-headers-generator';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CommentService {
 
   constructor(private readonly http: HttpClient) { }

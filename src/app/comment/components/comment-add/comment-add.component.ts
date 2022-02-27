@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { SubSink } from 'subsink';
 import { CommentService } from '../../services/comment.service';
@@ -10,7 +10,8 @@ import { CommentService } from '../../services/comment.service';
 })
 export class CommentAddComponent implements OnInit, OnDestroy {
 
-  @Input() uniquePostId: any;
+  @Input()
+  uniquePostId: any;
   private subscriptions: SubSink = new SubSink();
 
   constructor(

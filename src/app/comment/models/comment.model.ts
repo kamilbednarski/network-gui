@@ -1,3 +1,5 @@
+import { UserPublicDetails } from "src/app/profile/models/user-public-details.model";
+
 export interface Comment {
 
     commendId: number,
@@ -5,10 +7,6 @@ export interface Comment {
     numberOfLikes: number,
     numberOfShares: number,
     postId: number,
-    authorId: number,
-    authorFirstName: string,
-    authorLastName: string,
-    authorUsername: string,
     dateOfCreation: string,
     timeOfCreation: string,
     ageOfCommentInYears: number,
@@ -18,4 +16,6 @@ export interface Comment {
     isModified: boolean,
     dateOfModification: string,
     timeOfModification: string,
+    authorId: number,
+    authorData: UserPublicDetails
 }

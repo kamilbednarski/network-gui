@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CommentAddComponent } from './components/comment-add/comment-add.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { ProfileModule } from '../profile/profile.module';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ProfileModule
   ],
   exports: [
     CommentAddComponent,
@@ -21,6 +22,7 @@ import { SharedModule } from '../shared/shared.module';
   ]
 })
 export class CommentModule {
+
   static forRoot(): ModuleWithProviders<CommentModule> {
     return {
       ngModule: CommentModule,

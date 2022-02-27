@@ -1,7 +1,7 @@
 <div *ngIf="post" class="container border border-top-0">
     <div class="p-4">
         <!-- FIRST NAME, LAST NAME, USERNAME -->
-        <app-user-full-name [userData]="post.authorData"></app-user-full-name>
+        <app-user-full-name *ngIf="post.authorData" [userData]="post.authorData"></app-user-full-name>
 
         <!-- CONTENT -->
         <div class="row py-3">
