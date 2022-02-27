@@ -4,9 +4,9 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { PostService } from './services/post.service';
 import { CommentModule } from '../comment/comment.module';
-import { PostDateDetailsComponent } from './components/post-date-details/post-date-details.component';
 import { LikeButtonPostDetailsComponent } from './components/buttons/like-button-post-details/like-button-post-details.component';
 import { ProfileModule } from '../profile/profile.module';
+import { PostAddComponent } from './components/post-add/post-add.component';
 
 
 
@@ -14,8 +14,8 @@ import { ProfileModule } from '../profile/profile.module';
   declarations: [
     PostDetailsComponent,
     PostListComponent,
-    PostDateDetailsComponent,
-    LikeButtonPostDetailsComponent
+    LikeButtonPostDetailsComponent,
+    PostAddComponent
   ],
   imports: [
     SharedModule,
@@ -24,7 +24,8 @@ import { ProfileModule } from '../profile/profile.module';
   ],
   exports: [
     PostDetailsComponent,
-    PostListComponent
+    PostListComponent,
+    PostAddComponent
   ]
 })
 export class PostModule {

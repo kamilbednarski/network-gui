@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from '../../models/post.model';
-import { PostService } from '../../services/post.service';
+import { Post } from '../../post/models/post.model';
+import { PostService } from '../../post/services/post.service';
 
 @Component({
   selector: 'app-post-date-details',

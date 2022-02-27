@@ -25,12 +25,6 @@ export class CommentAddComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  private reloadComponent() {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate([this.router.url]);
-  }
-
   addComment(content: string, postId: number) {
     this.subscriptions.add(
       this.commentService.addComment(content, postId)
@@ -39,6 +33,12 @@ export class CommentAddComponent implements OnInit, OnDestroy {
           error => console.log(error)
         )
     );
+  }
+
+  private reloadComponent() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([this.router.url]);
   }
 
   deleteComment(commentId: number) {

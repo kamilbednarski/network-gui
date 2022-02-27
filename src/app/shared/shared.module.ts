@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 import { TopBarComponent } from './app-frame/top-bar/top-bar.component';
 import { FooterComponent } from './app-frame/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostDateDetailsComponent } from './post-date-details/post-date-details.component';
 
 
 @NgModule({
   declarations: [
     TopBarComponent,
-    FooterComponent
+    FooterComponent,
+    PostDateDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     TopBarComponent,
     FooterComponent,
+    PostDateDetailsComponent,
     ReactiveFormsModule
   ]
 })

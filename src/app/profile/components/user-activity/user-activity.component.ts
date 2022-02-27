@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-activity',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-activity.component.sass']
 })
 export class UserActivityComponent implements OnInit {
+
+  @Input()
+  username = "";
 
   isPostTabActive = true;
   isFollowersTabActive = false;

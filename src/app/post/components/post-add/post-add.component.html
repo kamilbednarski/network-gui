@@ -1,0 +1,15 @@
+<div class="container border border-top-0 p-3">
+    <div class="row g-2">
+        <!-- CONTENT INPUT -->
+        <div class="col">
+            <label for="postContentInput" class="visually-hidden">Write something...</label>
+            <input #postContentInput type="text" class="form-control border rounded-pill" id="postContentInput" placeholder="Write something...">
+        </div>
+
+        <!-- ADD POST BUTTON -->
+        <div class="col-auto">
+            <button (click)="addPost(postContentInput.value)"
+            class="btn btn-outline-success border border-success rounded-pill">Post</button>
+        </div>
+    </div>
+</div>

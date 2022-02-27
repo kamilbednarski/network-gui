@@ -1,6 +1,8 @@
 <div class="container">
     <div class="profile-container shadow my-3 pt-3 pb-4 bg-body rounded">
+      <div class="container pb-2">
         <app-user-full-name *ngIf="loggedUserDetails" [userData]="loggedUserDetails"></app-user-full-name>
-        <app-user-activity></app-user-activity>
+      </div>
+        <app-user-activity *ngIf="loggedUserDetails" [username]="loggedUserDetails.username"></app-user-activity>
     </div>
 </div>

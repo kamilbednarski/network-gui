@@ -1,18 +1,27 @@
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a [ngClass]="{'active' : isPostTabActive}"
-        (click)="activatePostsTab()" class="nav-link">Posts</a>
+        <a [ngClass]="{'active text-success' : isPostTabActive}"
+        (click)="activatePostsTab()"
+        class="nav-link text-secondary">Posts</a>
     </li>
     <li class="nav-item">
-        <a [ngClass]="{'active' : isFollowersTabActive}"
-        (click)="activateFollowersTab()" class="nav-link">Followers</a>
+        <a [ngClass]="{'active text-success' : isFollowersTabActive}"
+        (click)="activateFollowersTab()"
+        class="nav-link text-secondary">Followers</a>
     </li>
     <li class="nav-item">
-        <a [ngClass]="{'active' : isFollowingTabActive}"
-        (click)="activateFollowingTab()" class="nav-link">Following</a>
+        <a [ngClass]="{'active text-success' : isFollowingTabActive}"
+        (click)="activateFollowingTab()"
+        class="nav-link text-secondary">Following</a>
     </li>
     <li class="nav-item">
-        <a [ngClass]="{'active' : isLikesTabActive}"
-        (click)="activateLikesTab()" class="nav-link">Likes</a>
+        <a [ngClass]="{'active text-success' : isLikesTabActive}"
+        (click)="activateLikesTab()"
+        class="nav-link text-secondary">Likes</a>
     </li>
 </ul>
+
+<app-user-activity-posts-tab *ngIf="isPostTabActive" [username]="username"></app-user-activity-posts-tab>
+<app-user-activity-followers-tab *ngIf="isFollowersTabActive"></app-user-activity-followers-tab>
+<app-user-activity-following-tab *ngIf="isFollowingTabActive"></app-user-activity-following-tab>
+<app-user-activity-likes-tab *ngIf="isLikesTabActive"></app-user-activity-likes-tab>

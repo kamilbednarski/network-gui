@@ -46,6 +46,8 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       this.userDetailsService.readLoggedUserDetails()
         .subscribe(
           response => this.loggedUserDetails = response,
-          error => console.log(error)));
+          error => console.log(error)
+        )
+    );
   }
 }
