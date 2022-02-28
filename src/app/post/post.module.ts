@@ -7,6 +7,7 @@ import { CommentModule } from '../comment/comment.module';
 import { LikeButtonPostDetailsComponent } from './components/buttons/like-button-post-details/like-button-post-details.component';
 import { ProfileModule } from '../profile/profile.module';
 import { PostAddComponent } from './components/post-add/post-add.component';
+import { LikeService } from './services/like.service';
 
 
 
@@ -34,7 +35,8 @@ export class PostModule {
     return {
       ngModule: PostModule,
       providers: [
-        PostService
+        PostService,
+        LikeService
       ]
     }
   }

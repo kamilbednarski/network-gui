@@ -8,6 +8,7 @@ import { UserActivityPostsTabComponent } from './components/user-activity-posts-
 import { UserActivityFollowersTabComponent } from './components/user-activity-followers-tab/user-activity-followers-tab.component';
 import { UserActivityFollowingTabComponent } from './components/user-activity-following-tab/user-activity-following-tab.component';
 import { UserActivityLikesTabComponent } from './components/user-activity-likes-tab/user-activity-likes-tab.component';
+import { UserRelationshipService } from './services/user-relationship.service';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ export class ProfileModule {
     return {
       ngModule: ProfileModule,
       providers: [
-        UserDetailsService
+        UserDetailsService,
+        UserRelationshipService
       ]
     }
   }

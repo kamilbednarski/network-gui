@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-user-activity-likes-tab',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserActivityLikesTabComponent implements OnInit {
 
+  @Input()
+  username = "";
+  private subscriptions: SubSink = new SubSink();
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

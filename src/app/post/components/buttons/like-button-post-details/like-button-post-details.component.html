@@ -1,1 +1,4 @@
-<em class="bi bi-heart" (click)="addLike()"></em>
+<em [ngClass]="{
+    'bi bi-heart-fill': isPostLikedByLoggedUser,
+    'bi bi-heart': !isPostLikedByLoggedUser}"
+    (click)="toggleLikeState()"></em>

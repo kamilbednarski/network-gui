@@ -22,6 +22,6 @@
 </ul>
 
 <app-user-activity-posts-tab *ngIf="isPostTabActive" [username]="username"></app-user-activity-posts-tab>
-<app-user-activity-followers-tab *ngIf="isFollowersTabActive"></app-user-activity-followers-tab>
-<app-user-activity-following-tab *ngIf="isFollowingTabActive"></app-user-activity-following-tab>
-<app-user-activity-likes-tab *ngIf="isLikesTabActive"></app-user-activity-likes-tab>
+<app-user-activity-followers-tab *ngIf="isFollowersTabActive" [username]="username"></app-user-activity-followers-tab>
+<app-user-activity-following-tab *ngIf="isFollowingTabActive" [username]="username"></app-user-activity-following-tab>
+<app-user-activity-likes-tab *ngIf="isLikesTabActive" [username]="username"></app-user-activity-likes-tab>

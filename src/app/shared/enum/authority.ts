@@ -1,4 +1,4 @@
-enum Authority {
+export enum Authority {
 
     USER = 'USER',
     ADMIN = 'ADMIN'

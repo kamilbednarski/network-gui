@@ -1,1 +1,8 @@
-<p>user-activity-followers-tab works!</p>
+<div *ngIf="followerList.length > 0">
+    <div *ngFor="let follower of followerList">
+        <app-user-full-name [userData]="follower"></app-user-full-name>
+    </div>
+</div>
+<div *ngIf="followerList.length === 0" class="text-center text-secondary pt-3">
+    No followers yet.
+</div>

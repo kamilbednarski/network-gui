@@ -1,1 +1,8 @@
-<p>user-activity-following-tab works!</p>
+<div *ngIf="followedList.length > 0">
+    <div *ngFor="let followed of followedList">
+        <app-user-full-name [userData]="followed"></app-user-full-name>
+    </div>
+</div>
+<div *ngIf="followedList.length === 0" class="text-center text-secondary pt-3">
+    No followed yet.
+</div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SubSink } from 'subsink';
+import { UserPublicDetails } from '../../models/user-public-details.model';
+import { UserRelationshipService } from '../../services/user-relationship.service';
 
 @Component({
   selector: 'app-user-activity-followers-tab',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserActivityFollowersTabComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  username = "";
+  followerList: UserPublicDetails[] = [];
+  private subscriptions: SubSink = new SubSink();
+
+  constructor(private readonly relationshipService: UserRelationshipService) { }
 
   ngOnInit(): void {
+    this.loadFollowerList();
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  loadFollowerList() {
+    this.subscriptions.add(
+      this.relationshipService.loadFollowerListBy(this.username)
+        .subscribe(
+          response => this.followerList = response,
+          error => console.log(error)
+        )
+    );
+  }
 }
