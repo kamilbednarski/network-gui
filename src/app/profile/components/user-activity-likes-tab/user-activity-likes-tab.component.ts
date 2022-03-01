@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LikeService } from 'src/app/post/services/like.service';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -12,8 +13,23 @@ export class UserActivityLikesTabComponent implements OnInit {
   username = "";
   private subscriptions: SubSink = new SubSink();
 
-  constructor() { }
+  constructor(private readonly likeService: LikeService) { }
 
   ngOnInit(): void {
+    this.loadLikesByUser();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  loadLikesByUser(): void {
+    this.subscriptions.add(
+      this.likeService.loadLikesByUser(this.username)
+      .subscribe(
+        response => console.log(response),
+        error => console.log(error)
+      )
+    );
   }
 }

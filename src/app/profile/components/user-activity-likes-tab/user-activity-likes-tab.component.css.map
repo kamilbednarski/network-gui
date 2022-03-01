@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "user-activity-likes-tab.component.sass"
+    ],
+    "names": [],
+    "file": "user-activity-likes-tab.component.css"
+}

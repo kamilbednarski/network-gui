@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from '../../post/models/post.model';
-import { PostService } from '../../post/services/post.service';
+import { Post } from '../../../post/models/post.model';
+import { PostService } from '../../../post/services/post.service';
 
 @Component({
   selector: 'app-post-date-details',
@@ -13,8 +13,7 @@ export class PostDateDetailsComponent implements OnInit {
 
   constructor(private readonly postService: PostService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   displayPostCreationDateForToday(post: Post) {
     return this.postService.displayPostCreationDateForToday(post);

@@ -18,14 +18,14 @@ export class UserActivityFollowingTabComponent implements OnInit {
   constructor(private readonly relationshipService: UserRelationshipService) { }
 
   ngOnInit(): void {
-    this.loadFollowerList();
+    this.loadFollowedList();
   }
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
 
-  loadFollowerList() {
+  loadFollowedList(): void {
     this.subscriptions.add(
       this.relationshipService.loadFollowedListBy(this.username)
         .subscribe(

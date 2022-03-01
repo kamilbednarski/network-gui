@@ -1,0 +1,12 @@
+<div class="p-4">
+    <!-- FIRST NAME, LAST NAME, USERNAME -->
+    <app-user-full-name [userData]="post.authorData"></app-user-full-name>
+
+    <!-- DATE OF CREATION -->
+    <app-post-date-details [post]="post"></app-post-date-details>
+
+    <!-- LINK TO POST DETAILS -->
+    <app-post-content [post]="post"></app-post-content>
+
+    <app-post-icons [post]="post"></app-post-icons>
+</div>

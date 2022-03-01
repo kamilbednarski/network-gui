@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserPublicDetails } from '../../models/user-public-details.model';
+import { UserPublicDetails } from '../../../profile/models/user-public-details.model';
 
 @Component({
   selector: 'app-user-full-name',
@@ -12,6 +12,5 @@ export class UserFullNameComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }

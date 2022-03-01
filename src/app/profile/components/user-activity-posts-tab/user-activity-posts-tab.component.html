@@ -1,49 +1,6 @@
 <div *ngIf="posts.length > 0">
     <div *ngFor="let post of posts" class="container border border-top-0">
-        <div class="p-4">
-            <!-- FIRST NAME, LAST NAME, USERNAME -->
-            <app-user-full-name [userData]="post.authorData"></app-user-full-name>
-
-            <!-- DATE OF CREATION -->
-            <app-post-date-details [post]="post"></app-post-date-details>
-
-            <!-- LINK TO POST DETAILS -->
-            <div class="row py-3">
-                <div class="col d-flex position-relative">
-                    <a [routerLink]="['/post', post.postId]" class="stretched-link"></a>
-                    <div>{{ post.content }}</div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- COMMENTS -->
-                <div class="col">
-                    <div class="text-secondary">
-                        <em class="bi bi-chat"></em>
-                        <span *ngIf="post.numberOfComments>0" class="ms-1 fw-light small">{{
-                            formatNumber(post.numberOfComments) }}</span>
-                    </div>
-                </div>
-
-                <!-- LIKES -->
-                <div class="col">
-                    <div class="text-secondary">
-                        <em class="bi bi-heart"></em>
-                        <span *ngIf="post.numberOfLikes>0" class="ms-1 fw-light small">{{
-                            formatNumber(post.numberOfLikes) }}</span>
-                    </div>
-                </div>
-
-                <!-- SHARES -->
-                <div class="col">
-                    <div class="text-secondary">
-                        <em class="bi bi-share"></em>
-                        <span *ngIf="post.numberOfShares>0" class="ms-1 fw-light small">{{
-                            formatNumber(post.numberOfShares) }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <app-post [post]="post"></app-post>
     </div>
 </div>
 <div *ngIf="posts.length === 0" class="text-center text-secondary pt-3">

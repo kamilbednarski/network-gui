@@ -11,6 +11,7 @@ import { PostService } from '../../services/post.service';
 export class PostAddComponent implements OnInit {
 
   private subscriptions: SubSink = new SubSink();
+  isPostRequestPending = false;
 
   constructor(
     private readonly postService: PostService,
@@ -24,11 +25,18 @@ export class PostAddComponent implements OnInit {
   }
 
   addPost(content: string) {
+    this.isPostRequestPending = true;
     this.subscriptions.add(
       this.postService.addPost(content)
         .subscribe(
-          response => this.reloadComponent(),
-          error => console.log(error)
+          response => {
+            this.isPostRequestPending = false;
+            this.reloadComponent();
+          },
+          error => {
+            this.isPostRequestPending = false;
+            console.log(error);
+          }
         )
     );
   }

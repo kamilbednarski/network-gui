@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "user-activity-followers-tab.component.sass"
+    ],
+    "names": [],
+    "file": "user-activity-followers-tab.component.css"
+}
